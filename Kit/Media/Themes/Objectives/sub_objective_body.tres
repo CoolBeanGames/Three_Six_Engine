@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://khwja61hey3m"]
+
+[ext_resource type="FontFile" uid="uid://bkn0h0phg2p7m" path="res://Kit/Media/Fonts/seed-computer.otf" id="1_ei002"]
+
+[resource]
+RichTextLabel/font_sizes/normal_font_size = 21
+RichTextLabel/fonts/normal_font = ExtResource("1_ei002")

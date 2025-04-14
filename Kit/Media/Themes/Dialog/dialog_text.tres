@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://14ht1qotetk3"]
+
+[ext_resource type="FontFile" uid="uid://bkn0h0phg2p7m" path="res://Kit/Media/Fonts/seed-computer.otf" id="1_mur7e"]
+
+[resource]
+RichTextLabel/font_sizes/bold_font_size = 77
+RichTextLabel/font_sizes/bold_italics_font_size = 32
+RichTextLabel/font_sizes/italics_font_size = 32
+RichTextLabel/font_sizes/normal_font_size = 64
+RichTextLabel/fonts/bold_font = ExtResource("1_mur7e")
+RichTextLabel/fonts/bold_italics_font = ExtResource("1_mur7e")
+RichTextLabel/fonts/italics_font = ExtResource("1_mur7e")
+RichTextLabel/fonts/normal_font = ExtResource("1_mur7e")

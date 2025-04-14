@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://s6uu2sigmjdb"]
+
+[ext_resource type="Texture2D" uid="uid://cgdhnram0lkfh" path="res://Kit/Media/Textures/UI/Shadow (Horror)/borders/Sprite/border 4.png" id="1_3wb4e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f23k0"]
+texture = ExtResource("1_3wb4e")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[resource]
+Panel/styles/panel = null
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_f23k0")

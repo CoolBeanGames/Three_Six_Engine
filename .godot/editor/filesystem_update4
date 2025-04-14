@@ -1,0 +1,10 @@
+res://Kit/UI/Scenes/game_ui.tscn
+res://Kit/Media/Themes/Dialog/dialog_box.tres
+res://Kit/Media/Themes/Dialog/dialog_choices.tres
+res://Kit/Game.tscn
+res://Kit/Dialog System/Scenes/dialog_manager.tscn
+res://Kit/Dialog System/Scripts/State/wait.gd
+res://Kit/Dialog System/Scripts/State/dialogplay.gd
+res://Kit/Dialog System/Scripts/dialog_manager.gd
+res://Kit/Dialog System/Scripts/State/load_line_state.gd
+res://Kit/Dialog System/Scripts/State/dialog_state.gd

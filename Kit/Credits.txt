@@ -1,0 +1,4 @@
+art:
+    - MoonRoar (Casual UI Assets) by Studio Soul Areas
+    - Shadow Series by Escape Pixel
+    - FontSeeD Computer  by Kaimi (Font Struct)

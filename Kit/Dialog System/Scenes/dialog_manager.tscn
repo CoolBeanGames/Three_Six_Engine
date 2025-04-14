@@ -1,0 +1,117 @@
+[gd_scene load_steps=20 format=3 uid="uid://b6ku3iwmwo3du"]
+
+[ext_resource type="Script" uid="uid://c6cs1dfvuyxy0" path="res://Kit/Dialog System/Scripts/dialog_manager.gd" id="1_dsnd3"]
+[ext_resource type="Script" uid="uid://cqomdrt4v6j7i" path="res://Kit/Dialog System/Scripts/State/idle_state.gd" id="2_05uay"]
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_ilpcp"]
+[ext_resource type="Resource" uid="uid://cuo1yokc2h2d8" path="res://Testing/john.tres" id="3_3j7nh"]
+[ext_resource type="Script" uid="uid://bj35qca5hh13h" path="res://Kit/Dialog System/Scripts/State/setup_state.gd" id="3_efws6"]
+[ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="3_qcrud"]
+[ext_resource type="Script" uid="uid://bwgpv5sq6im4j" path="res://Kit/Dialog System/Data Types/Dialog_Choice.gd" id="4_3j7nh"]
+[ext_resource type="Script" uid="uid://b82jocxmyqfyi" path="res://Kit/Dialog System/Scripts/State/load_line_state.gd" id="4_cu1d8"]
+[ext_resource type="Resource" uid="uid://bodro2v1bacr0" path="res://Testing/James.tres" id="4_o5i6c"]
+[ext_resource type="Script" uid="uid://cv5qhyncfpaai" path="res://Kit/Dialog System/Scripts/State/dialogplay.gd" id="10_o5i6c"]
+[ext_resource type="Script" uid="uid://drh5gu473w25s" path="res://Kit/Dialog System/Scripts/State/wait.gd" id="11_2oi68"]
+
+[sub_resource type="Resource" id="Resource_o5i6c"]
+script = ExtResource("2_ilpcp")
+actor = ExtResource("3_3j7nh")
+line = "test line 1"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = true
+metadata/_custom_type_script = "uid://ca30d1alqu5bv"
+
+[sub_resource type="Resource" id="Resource_2oi68"]
+script = ExtResource("2_ilpcp")
+actor = ExtResource("4_o5i6c")
+line = "thats right! its a choice!"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = true
+metadata/_custom_type_script = "uid://ca30d1alqu5bv"
+
+[sub_resource type="Resource" id="Resource_wnpii"]
+script = ExtResource("3_qcrud")
+lines = Array[ExtResource("2_ilpcp")]([SubResource("Resource_2oi68")])
+required_flags = Array[String]([])
+metadata/_custom_type_script = "uid://dmudqty8g4hww"
+
+[sub_resource type="Resource" id="Resource_reiaq"]
+script = ExtResource("2_ilpcp")
+actor = ExtResource("3_3j7nh")
+line = "oh hey you found this line!"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = true
+metadata/_custom_type_script = "uid://ca30d1alqu5bv"
+
+[sub_resource type="Resource" id="Resource_nks4v"]
+script = ExtResource("3_qcrud")
+lines = Array[ExtResource("2_ilpcp")]([SubResource("Resource_reiaq")])
+required_flags = Array[String]([])
+metadata/_custom_type_script = "uid://dmudqty8g4hww"
+
+[sub_resource type="Resource" id="Resource_isr6t"]
+script = ExtResource("4_3j7nh")
+choice_one_text = "oh hey a choice"
+choice_one_conversation = SubResource("Resource_wnpii")
+choice_one_flags = Array[String]([])
+choice_two_text = "oh hey another choice"
+choice_two_conversation = SubResource("Resource_nks4v")
+choice_two_flags = Array[String]([])
+ui_selected = 0
+metadata/_custom_type_script = "uid://bwgpv5sq6im4j"
+
+[sub_resource type="Resource" id="Resource_mvv0m"]
+script = ExtResource("2_ilpcp")
+actor = ExtResource("4_o5i6c")
+line = "test line 2, this one has choices"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = true
+choice = SubResource("Resource_isr6t")
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://ca30d1alqu5bv"
+
+[sub_resource type="Resource" id="Resource_5a5hi"]
+script = ExtResource("3_qcrud")
+lines = Array[ExtResource("2_ilpcp")]([SubResource("Resource_o5i6c"), SubResource("Resource_mvv0m")])
+required_flags = Array[String]([])
+metadata/_custom_type_script = "uid://dmudqty8g4hww"
+
+[node name="Dialog_Manager" type="Node" node_paths=PackedStringArray("idle_state", "setup_state", "load_state", "play_state", "wait_state")]
+script = ExtResource("1_dsnd3")
+idle_state = NodePath("Idle")
+setup_state = NodePath("Setup")
+load_state = NodePath("Load")
+play_state = NodePath("Play")
+wait_state = NodePath("Wait")
+test_convo = SubResource("Resource_5a5hi")
+
+[node name="Idle" type="Node" parent="."]
+script = ExtResource("2_05uay")
+
+[node name="Setup" type="Node" parent="."]
+script = ExtResource("3_efws6")
+
+[node name="Load" type="Node" parent="."]
+script = ExtResource("4_cu1d8")
+
+[node name="Play" type="Node" parent="."]
+script = ExtResource("10_o5i6c")
+
+[node name="Wait" type="Node" parent="."]
+script = ExtResource("11_2oi68")
+
+[node name="Cleanup" type="Node" parent="."]

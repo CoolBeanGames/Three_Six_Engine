@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bhm8qb8hcd3t6"]
+
+[ext_resource type="FontFile" uid="uid://bkn0h0phg2p7m" path="res://Kit/Media/Fonts/seed-computer.otf" id="1_whicy"]
+[ext_resource type="Texture2D" uid="uid://cv1by7q6hxc74" path="res://Kit/Media/Textures/UI/Shadow (Horror)/borders/Sprite/border 3.png" id="2_lxnhm"]
+[ext_resource type="Texture2D" uid="uid://cgdhnram0lkfh" path="res://Kit/Media/Textures/UI/Shadow (Horror)/borders/Sprite/border 4.png" id="3_ihx7p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4dffv"]
+texture = ExtResource("2_lxnhm")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0akjy"]
+texture = ExtResource("3_ihx7p")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_whicy")
+Button/styles/hover = SubResource("StyleBoxTexture_4dffv")
+Button/styles/normal = SubResource("StyleBoxTexture_0akjy")
+Button/styles/pressed = null

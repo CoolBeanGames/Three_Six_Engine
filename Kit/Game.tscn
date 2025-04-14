@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpjldvhsy82gg"]
+
+[ext_resource type="PackedScene" uid="uid://jymux7f7cvlf" path="res://Kit/UI/Scenes/game_ui.tscn" id="1_2u7j5"]
+[ext_resource type="PackedScene" uid="uid://b6ku3iwmwo3du" path="res://Kit/Dialog System/Scenes/dialog_manager.tscn" id="1_kkdr5"]
+
+[node name="Node" type="Node"]
+
+[node name="Dialog_Manager" parent="." instance=ExtResource("1_kkdr5")]
+
+[node name="Game_UI" parent="." instance=ExtResource("1_2u7j5")]
