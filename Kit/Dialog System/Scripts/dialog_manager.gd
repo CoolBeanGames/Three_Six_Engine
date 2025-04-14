@@ -89,6 +89,29 @@ func enable_button(element : Button, text : String):
 	element.text = text
 	tween.tween_property(element,"self_modulate",Color(1,1,1,1),.25)
 
+func disable_element(element : Control):
+	var tween : Tween = create_tween()
+	element.visible = true 
+	tween.tween_property(element,"self_modulate",Color(1,1,1,0),.25)
+
+func disable_label(element : Label, text : String):
+	var tween : Tween = create_tween()
+	element.visible = true 
+	element.text = text
+	tween.tween_property(element,"self_modulate",Color(1,1,1,0),.25)
+
+func disable_rich_label(element : RichTextLabel, text : String):
+	var tween : Tween = create_tween()
+	element.visible = true 
+	element.text = text
+	tween.tween_property(element,"self_modulate",Color(1,1,1,0),.25)
+
+func disable_button(element : Button, text : String):
+	var tween : Tween = create_tween()
+	element.visible = true 
+	element.text = text
+	tween.tween_property(element,"self_modulate",Color(1,1,1,0),.25)
+
 func start_dialog_conversation(convo : conversation):
 	current_conversation = convo
 	current_state.next_state(setup_state)

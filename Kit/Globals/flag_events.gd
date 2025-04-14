@@ -32,7 +32,7 @@ func deregister(flag : String , node : Node):
 		print("Warning: Flag", flag, "not found in Watchers")
 		return false
 
-func set_flag(flag : String, value : bool):
+func set_flag(flag : String, value : bool = true):
 	flag=flag.to_lower()
 	if Watchers.has(flag):
 		var array : Array[flag_watcher] = Watchers[flag]

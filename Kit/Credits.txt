@@ -1,4 +1,7 @@
+these assets MUST be included in the credits if the releveant assets are used in 
+any games
+
 art:
-    - MoonRoar (Casual UI Assets) by Studio Soul Areas
-    - Shadow Series by Escape Pixel
-    - FontSeeD Computer  by Kaimi (Font Struct)
+	- MoonRoar (Casual UI Assets) by Studio Soul Areas
+	- Shadow Series by Escape Pixel
+	- FontSeeD Computer  by Kaimi (Font Struct)

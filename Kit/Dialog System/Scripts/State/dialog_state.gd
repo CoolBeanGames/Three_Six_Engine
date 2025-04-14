@@ -7,7 +7,7 @@ func initialize(man : dialog_manager) -> void:
 	manager = man
 
 func enter_state():
-	print("dialog entered state: ", name)
+	#print("dialog entered state: ", name)
 	pass
 
 func exit_state():
