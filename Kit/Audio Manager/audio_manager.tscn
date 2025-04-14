@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b3wa4llcttids"]
+
+[node name="AudioManager" type="Node"]
+
+[node name="Active Players" type="Node" parent="."]
+
+[node name="Inactive Players" type="Node" parent="."]
