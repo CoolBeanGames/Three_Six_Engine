@@ -29,6 +29,10 @@ window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/A_Bra/OneDrive/Documents/36_movie.avi"
+
 [input]
 
 action={

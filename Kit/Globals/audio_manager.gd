@@ -51,17 +51,18 @@ func push_p(player : audio_player):
 		Inactive_Players.add_child(player)
 		player_pushed.emit(player)
 
-func Create(stream : AudioStream, random_pitch : bool = true, type : audio_type = audio_type.sfx, volume : float = 1):
+func Create(stream : AudioStream, random_pitch : bool = true, type : audio_type = audio_type.sfx, volume : float = 1, pitch_offset : float = 0):
 	var p : audio_player = pop_p()
 	volume = linear_to_db(volume)
-	setup_audio(p,stream,random_pitch,type,volume)
+	setup_audio(p,stream,random_pitch,type,volume,pitch_offset)
 	p.play(0.0)
+	print("started audio")
 
-func setup_audio(p : audio_player, stream : AudioStream, random_pitch : bool , type : audio_type , volume : float ):
+func setup_audio(p : audio_player, stream : AudioStream, random_pitch : bool , type : audio_type , volume : float, pitch_offset : float ):
 	p.stream = stream
 	p.volume_db = volume
 	p.autoplay = false
 	if random_pitch:
-		p.pitch_scale = randf_range(0.9,1.1)
+		p.pitch_scale = randf_range(0.9,1.1) + pitch_offset
 	else:
 		p.pitch_scale = 1

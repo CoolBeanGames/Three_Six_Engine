@@ -10,6 +10,7 @@ var auto_finish : bool
 var choice_active : bool = false
 var current_line : dialog_line
 var current_choice : dialog_choice
+var typewriter_speed : float  = 0
 
 #setup the machine
 func enter_state():
@@ -46,19 +47,21 @@ func check_data():
 ##helper function to start the typewriter tween
 func start_typewriter():
 	typewriter_tween = create_tween()
-	typewriter_tween.tween_property(manager.ui_refs.dialog_text,"visible_ratio",1,0.1 * current_line.line.length())
+	typewriter_speed = 0.1 * current_line.line.length()
+	typewriter_tween.tween_property(manager.ui_refs.dialog_text,"visible_ratio",1,typewriter_speed)
 	typewriter_tween.finished.connect(tween_finished)
+	$"../Timer".start()
 
 ##used for playing typewriter sounds
-func tick():
-	if typewriter:
-		#typewriter sound
-		pass
-	super.tick()
+func pip_timer():
+	manager.play_audio_pip()
+	$"../Timer".start()
+
 
 ##called when the typewriter tween finishes
 func tween_finished():
 	typewriter_tween.finished.disconnect(tween_finished)
+	$"../Timer".stop()
 	print("tween finish")
 	if auto_finish_on_typewriter: ##autoconfirm on end
 		if current_choice == null:

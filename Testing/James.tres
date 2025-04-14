@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_nt5hu")
 actor_name = "James"
+pitch_offset = -0.3
 metadata/_custom_type_script = "uid://d1sgqvt5r02de"

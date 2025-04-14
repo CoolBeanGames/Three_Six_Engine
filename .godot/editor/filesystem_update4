@@ -7,3 +7,8 @@ res://Kit/Audio Manager/audio_manager.tscn
 res://Kit/UI/Scenes/game_ui.tscn
 res://Kit/Game.tscn
 res://Kit/Dialog System/Scenes/dialog_manager.tscn
+res://Kit/Dialog System/Scripts/dialog_manager.gd
+res://Kit/Dialog System/Scripts/State/dialogplay.gd
+res://Kit/Dialog System/Data Types/Actor.gd
+res://Testing/john.tres
+res://Testing/James.tres
