@@ -6,57 +6,153 @@ var typewriter_tween : Tween
 var is_voiced : bool
 var auto_finish_on_voice : bool
 var auto_finish_on_typewriter : bool
+var auto_finish : bool
+var choice_active : bool = false
+var current_line : dialog_line
+var current_choice : dialog_choice
 
+#setup the machine
 func enter_state():
 	super.enter_state()
-	if manager.current_line.typewriter:
+	check_data()
+	choice_active = false
+	if current_line.typewriter:
 		typewriter=true
 		manager.ui_refs.dialog_text.visible_ratio = 0
-		typewriter_tween = create_tween()
-		typewriter_tween.tween_property(manager.ui_refs.dialog_text,"visible_ratio",1,0.1 * manager.current_line.line.length())
-		typewriter_tween.finished.connect(tween_finished)
+		start_typewriter()
+	else:
+		if current_choice != null:
+			enable_choices()
+	if is_voiced:
+		##play voice line here
+		return
 
+##set flags for this line
+func check_data():
+	current_line = manager.current_line
+	if current_line.use_choices:
+		current_choice = current_line.choice
+	else:
+		current_choice = null
+	is_voiced = current_line is voiced_dialog_line
+	typewriter = current_line.typewriter
+	if is_voiced:
+		auto_finish_on_voice = current_line.end_on_voice_end
+	else:
+		auto_finish_on_voice = false
+	auto_finish_on_typewriter = current_line.confirm_on_typewriter_end
+	auto_finish = current_line.auto_confirm
+
+##helper function to start the typewriter tween
+func start_typewriter():
+	typewriter_tween = create_tween()
+	typewriter_tween.tween_property(manager.ui_refs.dialog_text,"visible_ratio",1,0.1 * current_line.line.length())
+	typewriter_tween.finished.connect(tween_finished)
+
+##used for playing typewriter sounds
 func tick():
 	if typewriter:
 		#typewriter sound
 		pass
 	super.tick()
 
+##called when the typewriter tween finishes
 func tween_finished():
 	typewriter_tween.finished.disconnect(tween_finished)
 	print("tween finish")
-	if manager.current_line.confirm_on_typewriter_end:
-		if !manager.current_line.use_choices:
+	if auto_finish_on_typewriter: ##autoconfirm on end
+		if current_choice == null:
 			#move to wait
 			await get_tree().create_timer(1).timeout
 			next_state(manager.load_state)
 			pass
-	elif manager.current_line.use_choices:
-		print("choice")
-		manager.enable_element(manager.ui_refs.choice_box)
-		manager.enable_element(manager.ui_refs.choice_1)
-		manager.enable_element(manager.ui_refs.choice_2)
-		manager.ui_refs.choice_1.pressed.connect(choice_1)
-		manager.ui_refs.choice_2.pressed.connect(choice_2)
+	elif current_choice != null: ##if we have choices, call them
+		enable_choices()
 
+#enable the choices UI
+func enable_choices():
+	print("choice:")
+	print_stack()
+	choice_active = true
+	manager.enable_element(manager.ui_refs.choice_box)
+	manager.enable_element(manager.ui_refs.choice_1)
+	manager.enable_element(manager.ui_refs.choice_2)
+	manager.ui_refs.choice_1.pressed.connect(choice_1)
+	manager.ui_refs.choice_2.pressed.connect(choice_2)
+
+#choice 1 was chosen
 func choice_1():
-	manager.ui_refs.choice_1.pressed.disconnect(choice_1)
-	manager.ui_refs.choice_2.pressed.disconnect(choice_2)
-	manager.current_conversation = manager.current_line.choice.choice_one_conversation
-	next_state(manager.setup_state)
+	choice_helper(current_choice.choice_one_conversation,current_choice.choice_one_flags)
 
+#choice 2 was chosen
 func choice_2():
-	manager.ui_refs.choice_1.pressed.disconnect(choice_1)
-	manager.ui_refs.choice_2.pressed.disconnect(choice_2)
-	manager.current_conversation = manager.current_line.choice.choice_two_conversation
+	choice_helper(current_choice.choice_two_conversation,current_choice.choice_two_flags)
+
+##call me to reset all the buttons
+func exit_state():
+	reset_buttons()
+	super.exit_state()
+
+##used to held disconnect choices when something is chosen
+func choice_helper(choice_conversation : conversation, flags : Array[String]):
+	reset_buttons()
+	manager.current_conversation = choice_conversation
+	#set all the flags for the choice
+	for f in flags:
+		Flag_Events.set_flag(f,true)
 	next_state(manager.setup_state)
 
+func reset_buttons():
+	for conn in manager.ui_refs.choice_1.pressed.get_connections():
+		manager.ui_refs.choice_1.pressed.disconnect(conn.callable)
+	for conn in manager.ui_refs.choice_2.pressed.get_connections():
+		manager.ui_refs.choice_2.pressed.disconnect(conn.callable)
+	manager.disable_element(manager.ui_refs.choice_box)
+	manager.disable_element(manager.ui_refs.choice_1)
+	manager.disable_element(manager.ui_refs.choice_2)	
+
+##on action for moving to next states
 func on_action():
-	print("play on action")
-	if typewriter_tween.is_running():
-		typewriter_tween.stop()
-		typewriter_tween.finished.disconnect(tween_finished)
-		manager.ui_refs.dialog_text.visible_ratio=1
-	elif !is_voiced and !manager.current_line.use_choices:
-		next_state(manager.load_state)
+	print("play on action") 
+	if typewriter_tween and typewriter_tween.is_running(): ##this is a typewriter
+		stop_typewriter()
+		print("stopping tween in play")
+		if_use_choices_on_end()
+		return
+	if is_voiced: ##and voice playing
+		##stop voice
+		if_use_choices_on_end()
+		return
+	if current_choice != null: ##not a typerwriter voiced and doesnt use choices
+		if_use_choices_on_end()
+		return
+	##none of the other conditions are true so just return
+	print("not voiced and doesnt use choices, going back to load")
+	next_state(manager.load_state)
+	return
 	super.on_action()
+
+##todo add end voice line code here
+func end_audio():
+	return
+
+##called when a voice line finishes
+func on_voice_finished():
+	var typewriter_done := not typewriter_tween or not typewriter_tween.is_running()
+
+	if auto_finish_on_voice and typewriter_done and current_choice == null:
+		next_state(manager.load_state)
+	elif current_choice != null:
+		enable_choices()
+
+##called when the user presses action and the line uses choices
+func if_use_choices_on_end():
+	if  current_choice != null:
+		print("enable choices in action")
+		enable_choices()
+
+##stops the typewriter effect dead in its tracks
+func stop_typewriter():
+	typewriter_tween.stop()
+	typewriter_tween.finished.disconnect(tween_finished)
+	manager.ui_refs.dialog_text.visible_ratio=1
