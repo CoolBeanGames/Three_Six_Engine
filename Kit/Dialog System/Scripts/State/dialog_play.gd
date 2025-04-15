@@ -11,6 +11,7 @@ var choice_active : bool = false
 var current_line : dialog_line
 var current_choice : dialog_choice
 var typewriter_speed : float  = 0
+var vocal_player : audio_player
 
 #setup the machine
 func enter_state():
@@ -25,6 +26,8 @@ func enter_state():
 		if current_choice != null:
 			enable_choices()
 	if is_voiced:
+		vocal_player = AudioManager.Create(current_line.voiced_line,false)
+		vocal_player.finished.connect(on_voice_finished)
 		##play voice line here
 		return
 
@@ -48,9 +51,12 @@ func check_data():
 func start_typewriter():
 	typewriter_tween = create_tween()
 	typewriter_speed = 0.1 * current_line.line.length()
+	if is_voiced:
+		typewriter_speed *= .3
 	typewriter_tween.tween_property(manager.ui_refs.dialog_text,"visible_ratio",1,typewriter_speed)
 	typewriter_tween.finished.connect(tween_finished)
-	$"../Timer".start()
+	if not is_voiced:
+		$"../Timer".start()
 
 ##used for playing typewriter sounds
 func pip_timer():
@@ -99,6 +105,11 @@ func exit_state():
 ##used to held disconnect choices when something is chosen
 func choice_helper(choice_conversation : conversation, flags : Array[String]):
 	reset_buttons()
+	if is_voiced and vocal_player and vocal_player.playing:
+		vocal_player.stop()
+		vocal_player.finished.disconnect(on_voice_finished)
+	if typewriter_tween and typewriter_tween.is_running():
+		typewriter_tween.stop()
 	manager.current_conversation = choice_conversation
 	#set all the flags for the choice
 	for f in flags:
@@ -122,8 +133,9 @@ func on_action():
 		print("stopping tween in play")
 		if_use_choices_on_end()
 		return
-	if is_voiced: ##and voice playing
+	if is_voiced and vocal_player: ##and voice playing
 		##stop voice
+		end_audio()
 		if_use_choices_on_end()
 		return
 	if current_choice != null: ##not a typerwriter voiced and doesnt use choices
@@ -137,12 +149,16 @@ func on_action():
 
 ##todo add end voice line code here
 func end_audio():
+	if vocal_player.playing:
+		vocal_player.stop()
+		on_voice_finished()
 	return
 
 ##called when a voice line finishes
 func on_voice_finished():
 	var typewriter_done := not typewriter_tween or not typewriter_tween.is_running()
-
+	vocal_player.finished.disconnect(on_voice_finished)
+	vocal_player=null
 	if auto_finish_on_voice and typewriter_done and current_choice == null:
 		next_state(manager.load_state)
 	elif current_choice != null:

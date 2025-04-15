@@ -1,2 +1,4 @@
+conversation
+dialog_choice
 Actor
 Theme

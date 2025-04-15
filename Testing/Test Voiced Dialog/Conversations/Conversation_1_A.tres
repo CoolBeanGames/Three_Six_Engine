@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="conversation" load_steps=15 format=3 uid="uid://dyxhe4h7ojawk"]
+
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_inwqc"]
+[ext_resource type="Script" uid="uid://dwq2247ff5cdn" path="res://Kit/Dialog System/Data Types/Voiced Line.gd" id="2_66wrb"]
+[ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="2_fi0iv"]
+[ext_resource type="Resource" uid="uid://bixm1xvipdqtx" path="res://Testing/Test Voiced Dialog/Actors/Mark.tres" id="2_hehca"]
+[ext_resource type="AudioStream" uid="uid://dj5w2grn7uq3g" path="res://Testing/Test Voiced Dialog/Vocals/Mark 4.mp3" id="4_po4j0"]
+[ext_resource type="AudioStream" uid="uid://ba4cuyb247lqb" path="res://Testing/Test Voiced Dialog/Vocals/Mark 5.mp3" id="5_au1gh"]
+[ext_resource type="Resource" uid="uid://cb8htkd05tuja" path="res://Testing/Test Voiced Dialog/Actors/Alexandria.tres" id="6_la8hh"]
+[ext_resource type="AudioStream" uid="uid://mwmaliknda4j" path="res://Testing/Test Voiced Dialog/Vocals/Alexandria 6.mp3" id="7_6nytl"]
+[ext_resource type="Resource" uid="uid://cj2ic1c5k3jcg" path="res://Testing/Test Voiced Dialog/Choices/choice_2.tres" id="8_o66st"]
+[ext_resource type="AudioStream" uid="uid://dvwbjn5ofexwy" path="res://Testing/Test Voiced Dialog/Vocals/Mark 7.mp3" id="9_hehca"]
+
+[sub_resource type="Resource" id="Resource_kom5x"]
+script = ExtResource("2_66wrb")
+voiced_line = ExtResource("4_po4j0")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_hehca")
+line = "Oh Awesome Glad you like it!"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_w6rbn"]
+script = ExtResource("2_66wrb")
+voiced_line = ExtResource("5_au1gh")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_hehca")
+line = "It was designed to be flexible eneough to be used in virtually ANY game i make in the future."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_frabq"]
+script = ExtResource("2_66wrb")
+voiced_line = ExtResource("7_6nytl")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("6_la8hh")
+line = "and game YOU make? Are you sure about that Mark?"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_bbvgl"]
+script = ExtResource("2_66wrb")
+voiced_line = ExtResource("9_hehca")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_hehca")
+line = "HA! well i think the user knows what i mean, obviously im not making the game. You get it, Right?"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = true
+choice = ExtResource("8_o66st")
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[resource]
+script = ExtResource("2_fi0iv")
+lines = Array[ExtResource("1_inwqc")]([SubResource("Resource_kom5x"), SubResource("Resource_w6rbn"), SubResource("Resource_frabq"), SubResource("Resource_bbvgl")])
+required_flags = Array[String]([])
+metadata/_custom_type_script = "uid://dmudqty8g4hww"

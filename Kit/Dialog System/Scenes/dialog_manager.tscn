@@ -1,23 +1,18 @@
-[gd_scene load_steps=39 format=3 uid="uid://b6ku3iwmwo3du"]
+[gd_scene load_steps=27 format=3 uid="uid://b6ku3iwmwo3du"]
 
 [ext_resource type="Script" uid="uid://c6cs1dfvuyxy0" path="res://Kit/Dialog System/Scripts/dialog_manager.gd" id="1_dsnd3"]
 [ext_resource type="Script" uid="uid://cqomdrt4v6j7i" path="res://Kit/Dialog System/Scripts/State/idle_state.gd" id="2_05uay"]
-[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_ilpcp"]
 [ext_resource type="AudioStream" uid="uid://cbv47qqyg2db8" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick1.wav" id="2_v7rxt"]
-[ext_resource type="Resource" uid="uid://cuo1yokc2h2d8" path="res://Testing/john.tres" id="3_3j7nh"]
 [ext_resource type="AudioStream" uid="uid://c0tt3l6hh0rt7" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick2.wav" id="3_d8c8a"]
 [ext_resource type="Script" uid="uid://bj35qca5hh13h" path="res://Kit/Dialog System/Scripts/State/setup_state.gd" id="3_efws6"]
-[ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="3_qcrud"]
 [ext_resource type="AudioStream" uid="uid://b7a0pwemoas0h" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick3.wav" id="4_00ng2"]
-[ext_resource type="Script" uid="uid://bwgpv5sq6im4j" path="res://Kit/Dialog System/Data Types/Dialog_Choice.gd" id="4_3j7nh"]
 [ext_resource type="Script" uid="uid://b82jocxmyqfyi" path="res://Kit/Dialog System/Scripts/State/load_line_state.gd" id="4_cu1d8"]
-[ext_resource type="Resource" uid="uid://bodro2v1bacr0" path="res://Testing/James.tres" id="4_o5i6c"]
 [ext_resource type="AudioStream" uid="uid://brnowdlh5dscl" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick4.wav" id="5_md101"]
 [ext_resource type="AudioStream" uid="uid://5hrnkhwrcj1m" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick5.wav" id="6_uuqsc"]
 [ext_resource type="AudioStream" uid="uid://bf2ubl8yhh4cg" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick6.wav" id="7_ermpn"]
 [ext_resource type="AudioStream" uid="uid://dmg442w7x3oy6" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick7.wav" id="8_lbgju"]
 [ext_resource type="AudioStream" uid="uid://du4kb1u6l8pjt" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick8.wav" id="9_kkf7x"]
-[ext_resource type="Script" uid="uid://cv5qhyncfpaai" path="res://Kit/Dialog System/Scripts/State/dialogplay.gd" id="10_o5i6c"]
+[ext_resource type="Script" uid="uid://cv5qhyncfpaai" path="res://Kit/Dialog System/Scripts/State/dialog_play.gd" id="10_o5i6c"]
 [ext_resource type="AudioStream" uid="uid://cak1guxxtrxk8" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick9.wav" id="10_p56e5"]
 [ext_resource type="Script" uid="uid://drh5gu473w25s" path="res://Kit/Dialog System/Scripts/State/wait.gd" id="11_2oi68"]
 [ext_resource type="AudioStream" uid="uid://cpdsa681gyp7u" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick10.wav" id="11_w1uvc"]
@@ -30,84 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://dw6uphgx40f2l" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick17.wav" id="18_atior"]
 [ext_resource type="AudioStream" uid="uid://dapbolptd0vbt" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick18.wav" id="19_wc1ct"]
 [ext_resource type="AudioStream" uid="uid://nkmd1d57cul1" path="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick19.wav" id="20_70b28"]
-
-[sub_resource type="Resource" id="Resource_o5i6c"]
-script = ExtResource("2_ilpcp")
-actor = ExtResource("3_3j7nh")
-line = "test line 1"
-flags = Array[String]([])
-show_actor_portrait = false
-typewriter = true
-use_choices = false
-auto_confirm = false
-confirm_on_typewriter_end = true
-metadata/_custom_type_script = "uid://ca30d1alqu5bv"
-
-[sub_resource type="Resource" id="Resource_2oi68"]
-script = ExtResource("2_ilpcp")
-actor = ExtResource("4_o5i6c")
-line = "thats right! its a choice!"
-flags = Array[String]([])
-show_actor_portrait = false
-typewriter = true
-use_choices = false
-auto_confirm = false
-confirm_on_typewriter_end = true
-metadata/_custom_type_script = "uid://ca30d1alqu5bv"
-
-[sub_resource type="Resource" id="Resource_wnpii"]
-script = ExtResource("3_qcrud")
-lines = Array[ExtResource("2_ilpcp")]([SubResource("Resource_2oi68")])
-required_flags = Array[String]([])
-metadata/_custom_type_script = "uid://dmudqty8g4hww"
-
-[sub_resource type="Resource" id="Resource_reiaq"]
-script = ExtResource("2_ilpcp")
-actor = ExtResource("3_3j7nh")
-line = "oh hey you found this line!"
-flags = Array[String]([])
-show_actor_portrait = false
-typewriter = true
-use_choices = false
-auto_confirm = false
-confirm_on_typewriter_end = true
-metadata/_custom_type_script = "uid://ca30d1alqu5bv"
-
-[sub_resource type="Resource" id="Resource_nks4v"]
-script = ExtResource("3_qcrud")
-lines = Array[ExtResource("2_ilpcp")]([SubResource("Resource_reiaq")])
-required_flags = Array[String]([])
-metadata/_custom_type_script = "uid://dmudqty8g4hww"
-
-[sub_resource type="Resource" id="Resource_isr6t"]
-script = ExtResource("4_3j7nh")
-choice_one_text = "oh hey a choice"
-choice_one_conversation = SubResource("Resource_wnpii")
-choice_one_flags = Array[String]([])
-choice_two_text = "oh hey another choice"
-choice_two_conversation = SubResource("Resource_nks4v")
-choice_two_flags = Array[String]([])
-ui_selected = 0
-metadata/_custom_type_script = "uid://bwgpv5sq6im4j"
-
-[sub_resource type="Resource" id="Resource_mvv0m"]
-script = ExtResource("2_ilpcp")
-actor = ExtResource("4_o5i6c")
-line = "test line 2, this one has choices"
-flags = Array[String]([])
-show_actor_portrait = false
-typewriter = true
-use_choices = true
-choice = SubResource("Resource_isr6t")
-auto_confirm = false
-confirm_on_typewriter_end = false
-metadata/_custom_type_script = "uid://ca30d1alqu5bv"
-
-[sub_resource type="Resource" id="Resource_5a5hi"]
-script = ExtResource("3_qcrud")
-lines = Array[ExtResource("2_ilpcp")]([SubResource("Resource_o5i6c"), SubResource("Resource_mvv0m")])
-required_flags = Array[String]([])
-metadata/_custom_type_script = "uid://dmudqty8g4hww"
+[ext_resource type="Resource" uid="uid://dnqepkx2uisio" path="res://Testing/Test Voiced Dialog/Conversations/Conversation_1.tres" id="21_dljco"]
 
 [node name="Dialog_Manager" type="Node" node_paths=PackedStringArray("idle_state", "setup_state", "load_state", "play_state", "wait_state")]
 script = ExtResource("1_dsnd3")
@@ -117,7 +35,7 @@ setup_state = NodePath("Setup")
 load_state = NodePath("Load")
 play_state = NodePath("Play")
 wait_state = NodePath("Wait")
-test_convo = SubResource("Resource_5a5hi")
+test_convo = ExtResource("21_dljco")
 
 [node name="Idle" type="Node" parent="."]
 script = ExtResource("2_05uay")

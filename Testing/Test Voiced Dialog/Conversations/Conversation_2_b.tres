@@ -1,0 +1,149 @@
+[gd_resource type="Resource" script_class="conversation" load_steps=22 format=3 uid="uid://xq41anyhvxsf"]
+
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_j7m0o"]
+[ext_resource type="Resource" uid="uid://bixm1xvipdqtx" path="res://Testing/Test Voiced Dialog/Actors/Mark.tres" id="2_mrpy1"]
+[ext_resource type="Script" uid="uid://dwq2247ff5cdn" path="res://Kit/Dialog System/Data Types/Voiced Line.gd" id="3_vtjrl"]
+[ext_resource type="AudioStream" uid="uid://wsla2usx5vva" path="res://Testing/Test Voiced Dialog/Vocals/Mark 22.mp3" id="4_uyrrh"]
+[ext_resource type="Resource" uid="uid://cb8htkd05tuja" path="res://Testing/Test Voiced Dialog/Actors/Alexandria.tres" id="5_frjkd"]
+[ext_resource type="AudioStream" uid="uid://d3u8ggawthtd" path="res://Testing/Test Voiced Dialog/Vocals/Alexandria 23.mp3" id="6_vi62m"]
+[ext_resource type="AudioStream" uid="uid://bd03qgb0fk2tg" path="res://Testing/Test Voiced Dialog/Vocals/Mark 14.mp3" id="11_xd6p2"]
+[ext_resource type="AudioStream" uid="uid://t8v6crxdmmng" path="res://Testing/Test Voiced Dialog/Vocals/Alexandria 15.mp3" id="12_4f28i"]
+[ext_resource type="AudioStream" uid="uid://mc647cka2012" path="res://Testing/Test Voiced Dialog/Vocals/Mark 16.mp3" id="13_a8ajs"]
+[ext_resource type="AudioStream" uid="uid://bdm0h7n43rw50" path="res://Testing/Test Voiced Dialog/Vocals/Mark 17.mp3" id="14_ekdhd"]
+[ext_resource type="AudioStream" uid="uid://cy8bh2rgvlott" path="res://Testing/Test Voiced Dialog/Vocals/Alexandria 18.mp3" id="15_ajxoi"]
+[ext_resource type="AudioStream" uid="uid://wbsv40kn1lq4" path="res://Testing/Test Voiced Dialog/Vocals/Mark 19.mp3" id="16_b2op4"]
+[ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="17_2uwuk"]
+
+[sub_resource type="Resource" id="Resource_totfb"]
+script = ExtResource("3_vtjrl")
+voiced_line = ExtResource("4_uyrrh")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_mrpy1")
+line = "are.. are you serious? Clearly i was kidding right?"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_dg4ub"]
+script = ExtResource("3_vtjrl")
+voiced_line = ExtResource("6_vi62m")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("5_frjkd")
+line = "I couldnt tell that you were kidding…"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_6tq7e"]
+script = ExtResource("3_vtjrl")
+voiced_line = ExtResource("11_xd6p2")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_mrpy1")
+line = "Jesus Christ! can you get off my ass! we already established they know what I mean so just stay in your lane and let me close this out!"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_7moov"]
+script = ExtResource("3_vtjrl")
+voiced_line = ExtResource("12_4f28i")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("5_frjkd")
+line = "oh... i'm.. i'm sorry i didn't mean to interrupt. Go ahead."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_fb66v"]
+script = ExtResource("3_vtjrl")
+voiced_line = ExtResource("13_a8ajs")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_mrpy1")
+line = "Thank you!"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_peq13"]
+script = ExtResource("3_vtjrl")
+voiced_line = ExtResource("14_ekdhd")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_mrpy1")
+line = "So anyways, This concludes the sample testing dialog conversation. See you later!"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_6fkhv"]
+script = ExtResource("3_vtjrl")
+voiced_line = ExtResource("15_ajxoi")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("5_frjkd")
+line = "Byeeee!"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_dmii5"]
+script = ExtResource("3_vtjrl")
+voiced_line = ExtResource("16_b2op4")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_mrpy1")
+line = "You always have to do that! you always HAVE to have the last word, im sick of it."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[resource]
+script = ExtResource("17_2uwuk")
+lines = Array[ExtResource("1_j7m0o")]([SubResource("Resource_totfb"), SubResource("Resource_dg4ub"), SubResource("Resource_6tq7e"), SubResource("Resource_7moov"), SubResource("Resource_fb66v"), SubResource("Resource_peq13"), SubResource("Resource_6fkhv"), SubResource("Resource_dmii5")])
+required_flags = Array[String]([])
+metadata/_custom_type_script = "uid://dmudqty8g4hww"
