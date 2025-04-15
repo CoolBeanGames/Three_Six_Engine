@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="dialog_choice" load_steps=4 format=3 uid="uid://cpabnkt5qe1br"]
+
+[ext_resource type="Script" uid="uid://bwgpv5sq6im4j" path="res://Kit/Dialog System/Data Types/Dialog_Choice.gd" id="1_7sekw"]
+[ext_resource type="Resource" uid="uid://dyxhe4h7ojawk" path="res://Testing/Test Voiced Dialog/Conversations/Conversation_1_A.tres" id="1_db5jq"]
+[ext_resource type="Resource" uid="uid://ccnffwpufmes" path="res://Testing/Test Voiced Dialog/Conversations/Conversation_1_B.tres" id="2_wgnxi"]
+
+[resource]
+script = ExtResource("1_7sekw")
+choice_one_text = "I love it!"
+choice_one_conversation = ExtResource("1_db5jq")
+choice_one_flags = Array[String]([])
+choice_two_text = "I hate it!"
+choice_two_conversation = ExtResource("2_wgnxi")
+choice_two_flags = Array[String]([])
+ui_selected = 0
+metadata/_custom_type_script = "uid://bwgpv5sq6im4j"

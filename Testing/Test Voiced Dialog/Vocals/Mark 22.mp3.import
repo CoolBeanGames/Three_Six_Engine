@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wsla2usx5vva"
+path="res://.godot/imported/Mark 22.mp3-0f03c7d77be1f7de6fc00517b3e70c9d.mp3str"
+
+[deps]
+
+source_file="res://Testing/Test Voiced Dialog/Vocals/Mark 22.mp3"
+dest_files=["res://.godot/imported/Mark 22.mp3-0f03c7d77be1f7de6fc00517b3e70c9d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

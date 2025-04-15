@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g68n18lcmpax"
+path="res://.godot/imported/Mark 21.mp3-399af38d87226e1dd9f00f017ab29f09.mp3str"
+
+[deps]
+
+source_file="res://Testing/Test Voiced Dialog/Vocals/Mark 21.mp3"
+dest_files=["res://.godot/imported/Mark 21.mp3-399af38d87226e1dd9f00f017ab29f09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

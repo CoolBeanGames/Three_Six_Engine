@@ -7,6 +7,7 @@ var current_line : dialog_line
 var current_choice : dialog_choice
 var ui_refs : dialog_refs
 var dialog_index = 0
+@export var audio_pips : Array[AudioStream] = []
 @export_category("states")
 @export var idle_state : dialog_idle_state
 @export var setup_state : dialog_setup_state
@@ -14,6 +15,7 @@ var dialog_index = 0
 @export var play_state : dialog_play_state
 @export var wait_state : dialog_wait_state
 @export var test_convo : conversation
+
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -36,8 +38,8 @@ func _init_states():
 func _process(delta: float) -> void:
 	#this is a temp function
 	if Input.is_action_just_released("action"):
-		print("action: " , current_state.name)
 		current_state.on_action()
+	current_state.tick()
 
 func disable_and_reset_ui(instant : bool = false):
 	ui_refs.dialog_text.text = ""
@@ -115,3 +117,8 @@ func disable_button(element : Button, text : String):
 func start_dialog_conversation(convo : conversation):
 	current_conversation = convo
 	current_state.next_state(setup_state)
+
+func play_audio_pip():
+	if audio_pips.size() > 0:
+		var pip : AudioStream = audio_pips[randi_range(0,audio_pips.size()-1)]
+		AudioManager.Create(pip,true,AudioManager.audio_type.sfx,1,current_line.actor.pitch_offset)

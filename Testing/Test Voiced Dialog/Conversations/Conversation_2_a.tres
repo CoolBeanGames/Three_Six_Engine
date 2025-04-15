@@ -1,0 +1,217 @@
+[gd_resource type="Resource" script_class="conversation" load_steps=30 format=3 uid="uid://b2a8sm3vvcf1i"]
+
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_jl1e8"]
+[ext_resource type="Script" uid="uid://dwq2247ff5cdn" path="res://Kit/Dialog System/Data Types/Voiced Line.gd" id="2_ep61i"]
+[ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="2_kipej"]
+[ext_resource type="Resource" uid="uid://bixm1xvipdqtx" path="res://Testing/Test Voiced Dialog/Actors/Mark.tres" id="2_ttwrq"]
+[ext_resource type="Resource" uid="uid://cb8htkd05tuja" path="res://Testing/Test Voiced Dialog/Actors/Alexandria.tres" id="3_bs0fe"]
+[ext_resource type="AudioStream" uid="uid://boqdpa7a8onol" path="res://Testing/Test Voiced Dialog/Vocals/Mark 8.mp3" id="4_n7nw3"]
+[ext_resource type="AudioStream" uid="uid://dcvgttccfjaka" path="res://Testing/Test Voiced Dialog/Vocals/Alexandria 9.mp3" id="6_0nbqs"]
+[ext_resource type="AudioStream" uid="uid://8fwwanlvgbkt" path="res://Testing/Test Voiced Dialog/Vocals/Alexandria 10.mp3" id="7_khmwl"]
+[ext_resource type="AudioStream" uid="uid://csrna8265d1rn" path="res://Testing/Test Voiced Dialog/Vocals/Alexandria 11.mp3" id="8_nwqv6"]
+[ext_resource type="AudioStream" uid="uid://cqk2g6jw2bipv" path="res://Testing/Test Voiced Dialog/Vocals/Mark 12.mp3" id="9_1k21o"]
+[ext_resource type="AudioStream" uid="uid://dmjpsyqp8efc4" path="res://Testing/Test Voiced Dialog/Vocals/Alexandria 13.mp3" id="10_b5is1"]
+[ext_resource type="AudioStream" uid="uid://bd03qgb0fk2tg" path="res://Testing/Test Voiced Dialog/Vocals/Mark 14.mp3" id="11_fn3g3"]
+[ext_resource type="AudioStream" uid="uid://t8v6crxdmmng" path="res://Testing/Test Voiced Dialog/Vocals/Alexandria 15.mp3" id="12_uqqrp"]
+[ext_resource type="AudioStream" uid="uid://mc647cka2012" path="res://Testing/Test Voiced Dialog/Vocals/Mark 16.mp3" id="13_t0xuo"]
+[ext_resource type="AudioStream" uid="uid://bdm0h7n43rw50" path="res://Testing/Test Voiced Dialog/Vocals/Mark 17.mp3" id="14_wolis"]
+[ext_resource type="AudioStream" uid="uid://cy8bh2rgvlott" path="res://Testing/Test Voiced Dialog/Vocals/Alexandria 18.mp3" id="15_4tqyb"]
+[ext_resource type="AudioStream" uid="uid://wbsv40kn1lq4" path="res://Testing/Test Voiced Dialog/Vocals/Mark 19.mp3" id="16_qyu1d"]
+
+[sub_resource type="Resource" id="Resource_y0gjm"]
+script = ExtResource("2_ep61i")
+voiced_line = ExtResource("4_n7nw3")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_ttwrq")
+line = "See?"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_hv5ra"]
+script = ExtResource("2_ep61i")
+voiced_line = ExtResource("6_0nbqs")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("3_bs0fe")
+line = "Fair Eneough."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_eltsk"]
+script = ExtResource("2_ep61i")
+voiced_line = ExtResource("7_khmwl")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("3_bs0fe")
+line = "Anyways..."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_7djc4"]
+script = ExtResource("2_ep61i")
+voiced_line = ExtResource("8_nwqv6")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("3_bs0fe")
+line = "I hope you enjoyed this first look at the complete dialog system for the Three Six kit by Cool Bean Games. "
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_1m11f"]
+script = ExtResource("2_ep61i")
+voiced_line = ExtResource("9_1k21o")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_ttwrq")
+line = "This will be used in the future in all (Godot) games made by us."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_bakk1"]
+script = ExtResource("2_ep61i")
+voiced_line = ExtResource("10_b5is1")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("3_bs0fe")
+line = "Us?"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_6tq7e"]
+script = ExtResource("2_ep61i")
+voiced_line = ExtResource("11_fn3g3")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_ttwrq")
+line = "Jesus Christ! can you get off my ass! we already established they know what I mean so just stay in your lane and let me close this out!"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_7moov"]
+script = ExtResource("2_ep61i")
+voiced_line = ExtResource("12_uqqrp")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("3_bs0fe")
+line = "oh... i'm.. i'm sorry i didn't mean to interrupt. Go ahead."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_fb66v"]
+script = ExtResource("2_ep61i")
+voiced_line = ExtResource("13_t0xuo")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_ttwrq")
+line = "Thank you!"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_peq13"]
+script = ExtResource("2_ep61i")
+voiced_line = ExtResource("14_wolis")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_ttwrq")
+line = "So anyways, This concludes the sample testing dialog conversation. See you later!"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_6fkhv"]
+script = ExtResource("2_ep61i")
+voiced_line = ExtResource("15_4tqyb")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("3_bs0fe")
+line = "Byeeee!"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_dmii5"]
+script = ExtResource("2_ep61i")
+voiced_line = ExtResource("16_qyu1d")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_ttwrq")
+line = "You always have to do that! you always HAVE to have the last word, im sick of it."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[resource]
+script = ExtResource("2_kipej")
+lines = Array[ExtResource("1_jl1e8")]([SubResource("Resource_y0gjm"), SubResource("Resource_hv5ra"), SubResource("Resource_eltsk"), SubResource("Resource_7djc4"), SubResource("Resource_1m11f"), SubResource("Resource_bakk1"), SubResource("Resource_6tq7e"), SubResource("Resource_7moov"), SubResource("Resource_fb66v"), SubResource("Resource_peq13"), SubResource("Resource_6fkhv"), SubResource("Resource_dmii5")])
+required_flags = Array[String]([])
+metadata/_custom_type_script = "uid://dmudqty8g4hww"

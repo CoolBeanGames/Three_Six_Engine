@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3u8ggawthtd"
+path="res://.godot/imported/Alexandria 23.mp3-58ae0cb90705072b3675c4f8fb9a6e68.mp3str"
+
+[deps]
+
+source_file="res://Testing/Test Voiced Dialog/Vocals/Alexandria 23.mp3"
+dest_files=["res://.godot/imported/Alexandria 23.mp3-58ae0cb90705072b3675c4f8fb9a6e68.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
