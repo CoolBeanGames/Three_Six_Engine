@@ -1,5 +1,5 @@
 extends Resource
-class_name dialog_line
+class_name DialogLine
 
 @export var actor : Actor
 @export_multiline var line : String = ""
@@ -10,7 +10,7 @@ class_name dialog_line
 @export var typewriter : bool = true
 @export_category("choices")
 @export var use_choices : bool = false
-@export var choice: dialog_choice
+@export var choice: DialogChoice
 @export_category("confirmation")
 @export var auto_confirm : bool = false
 @export var confirm_on_typewriter_end : bool = false

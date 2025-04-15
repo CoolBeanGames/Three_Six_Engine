@@ -1,5 +1,5 @@
-extends dialog_state
-class_name dialog_play_state
+extends DialogState
+class_name DialogPlayState
 
 var typewriter : bool = false
 var typewriter_tween : Tween
@@ -8,10 +8,10 @@ var auto_finish_on_voice : bool
 var auto_finish_on_typewriter : bool
 var auto_finish : bool
 var choice_active : bool = false
-var current_line : dialog_line
-var current_choice : dialog_choice
+var current_line : DialogLine
+var current_choice : DialogChoice
 var typewriter_speed : float  = 0
-var vocal_player : audio_player
+var vocal_player : AudioPlayer
 
 #setup the machine
 func enter_state():
@@ -26,7 +26,7 @@ func enter_state():
 		if current_choice != null:
 			enable_choices()
 	if is_voiced:
-		vocal_player = AudioManager.Create(current_line.voiced_line,false)
+		vocal_player = Audio_Manager.Create(current_line.voiced_line,false)
 		vocal_player.finished.connect(on_voice_finished)
 		##play voice line here
 		return
@@ -38,7 +38,7 @@ func check_data():
 		current_choice = current_line.choice
 	else:
 		current_choice = null
-	is_voiced = current_line is voiced_dialog_line
+	is_voiced = current_line is VoicedDialogLine
 	typewriter = current_line.typewriter
 	if is_voiced:
 		auto_finish_on_voice = current_line.end_on_voice_end
@@ -80,8 +80,7 @@ func tween_finished():
 
 #enable the choices UI
 func enable_choices():
-	print("choice:")
-	print_stack()
+	reset_buttons()
 	choice_active = true
 	manager.enable_element(manager.ui_refs.choice_box)
 	manager.enable_element(manager.ui_refs.choice_1)
@@ -103,7 +102,7 @@ func exit_state():
 	super.exit_state()
 
 ##used to held disconnect choices when something is chosen
-func choice_helper(choice_conversation : conversation, flags : Array[String]):
+func choice_helper(choice_conversation : Conversation, flags : Array[String]):
 	reset_buttons()
 	if is_voiced and vocal_player and vocal_player.playing:
 		vocal_player.stop()

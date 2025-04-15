@@ -1,5 +1,5 @@
-extends dialog_state
-class_name dialog_wait_state
+extends DialogState
+class_name DialogWaitState
 
 func on_action():
 	super.on_action()
