@@ -1,0 +1,158 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmty12a2m1yhj"]
+
+[ext_resource type="Script" uid="uid://8nsptyby4tdm" path="res://addons/ThreeSix/dialog_importer_ui.gd" id="1_vaaim"]
+
+[node name="DialogImporterUi" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vaaim")
+
+[node name="name" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "Dialog CSV Importer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_stretch_ratio = 0.2
+
+[node name="URL" type="TextEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "paste google sheets URL"
+scroll_fit_content_height = true
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.3
+text = "Import CSV"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "CSV Preview"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "First 3 Entry preview"
+horizontal_alignment = 1
+
+[node name="Labels" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.2
+
+[node name="Label" type="Label" parent="VBoxContainer2/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Actor"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer2/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Group"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer2/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Conversation"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer2/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Line name"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer2/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "line"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer2/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "is voiced"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer2/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "already exists"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="info" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Entries Imported" type="Label" parent="info"]
+layout_mode = 2
+text = "Entries Imported: 0"
+
+[node name="Spacer" type="Label" parent="info"]
+layout_mode = 2
+text = "         "
+
+[node name="Import Time" type="Label" parent="info"]
+layout_mode = 2
+text = "Import Time: 0ms"
+
+[node name="Spacer2" type="Label" parent="info"]
+layout_mode = 2
+text = "         "
+
+[node name="Pre-Existing Items" type="Label" parent="info"]
+layout_mode = 2
+text = "Pre-Existing Items: 0"
+
+[node name="Spacer3" type="Label" parent="info"]
+layout_mode = 2
+text = "                                                                        "
+
+[node name="parse_info_button" type="Button" parent="info"]
+layout_mode = 2
+text = "Parse CSV Data"
+
+[node name="Spacer4" type="Label" parent="info"]
+layout_mode = 2
+text = "         "
+
+[node name="save_resourced_button" type="Button" parent="info"]
+layout_mode = 2
+text = "Save Resources"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_import_csv_pressed"]
+[connection signal="pressed" from="info/parse_info_button" to="." method="_on_parse_info_button_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

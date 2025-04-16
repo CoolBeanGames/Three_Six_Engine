@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="DialogLine" load_steps=5 format=3 uid="uid://bc8uiwc2yvaea"]
+
+[ext_resource type="Resource" uid="uid://bn6bi2ksuq6lo" path="res://Data/Dialog/Actors/John.tres" id="1_oifj1"]
+[ext_resource type="Script" uid="uid://bwgpv5sq6im4j" path="res://Kit/Dialog System/Data Types/Dialog_Choice.gd" id="2_xqfbw"]
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="3_yc28u"]
+
+[sub_resource type="Resource" id="Resource_oifj1"]
+script = ExtResource("2_xqfbw")
+choice_one_text = ""
+choice_one_flags = Array[String]([])
+choice_two_text = ""
+choice_two_flags = Array[String]([])
+ui_selected = 0
+
+[resource]
+script = ExtResource("3_yc28u")
+actor = ExtResource("1_oifj1")
+line = "im also so lonely"
+flags = Array[String](["one", "two", "three"])
+show_actor_portrait = false
+typewriter = false
+use_choices = true
+choice = SubResource("Resource_oifj1")
+auto_confirm = false
+confirm_on_typewriter_end = false

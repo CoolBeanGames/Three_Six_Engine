@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DialogLine" load_steps=3 format=3 uid="uid://wqprxh42ldit"]
+
+[ext_resource type="Resource" uid="uid://b3lihq0tamwoq" path="res://Data/Dialog/Actors/Amy.tres" id="1_pqbmw"]
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_jbse7"]
+
+[resource]
+script = ExtResource("2_jbse7")
+actor = ExtResource("1_pqbmw")
+line = "im so lonely"
+flags = Array[String](["one", "two"])
+show_actor_portrait = false
+typewriter = false
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false

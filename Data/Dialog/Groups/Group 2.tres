@@ -1,0 +1,102 @@
+[gd_resource type="Resource" script_class="ConversationGroup" load_steps=18 format=3 uid="uid://brus26tqykdqo"]
+
+[ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="1_o0dkk"]
+[ext_resource type="Script" uid="uid://cmee8yawiwlle" path="res://Kit/Dialog System/Data Types/Conversation Group.gd" id="2_3bul7"]
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_a1scf"]
+[ext_resource type="Script" uid="uid://d1sgqvt5r02de" path="res://Kit/Dialog System/Data Types/Actor.gd" id="3_a2qed"]
+[ext_resource type="Script" uid="uid://bwgpv5sq6im4j" path="res://Kit/Dialog System/Data Types/Dialog_Choice.gd" id="4_yjif1"]
+[ext_resource type="Resource" uid="uid://cvr3ilamr3srk" path="res://Data/Dialog/Conversations/Convo 3.tres" id="5_yjif1"]
+[ext_resource type="Resource" uid="uid://bs3tsvdfxks7l" path="res://Data/Dialog/Conversations/Convo 4.tres" id="6_ckipo"]
+
+[sub_resource type="Resource" id="Resource_fxuxc"]
+script = ExtResource("3_a2qed")
+actor_name = "John"
+pitch_offset = 1.0
+
+[sub_resource type="Resource" id="Resource_a2qed"]
+script = ExtResource("4_yjif1")
+choice_one_text = ""
+choice_one_flags = Array[String]([])
+choice_two_text = ""
+choice_two_flags = Array[String]([])
+ui_selected = 0
+
+[sub_resource type="Resource" id="Resource_ydq4j"]
+script = ExtResource("2_a1scf")
+actor = SubResource("Resource_fxuxc")
+line = "im also so lonely"
+flags = Array[String](["one", "two", "three"])
+show_actor_portrait = false
+typewriter = false
+use_choices = true
+choice = SubResource("Resource_a2qed")
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_ni4q4"]
+script = ExtResource("2_a1scf")
+actor = SubResource("Resource_fxuxc")
+line = "im also so lonely"
+flags = Array[String](["one", "two", "three"])
+show_actor_portrait = false
+typewriter = false
+use_choices = true
+choice = SubResource("Resource_a2qed")
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_s0627"]
+script = ExtResource("2_a1scf")
+actor = SubResource("Resource_fxuxc")
+line = "im also so lonely"
+flags = Array[String](["one", "two", "three"])
+show_actor_portrait = false
+typewriter = false
+use_choices = true
+choice = SubResource("Resource_a2qed")
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_3bul7"]
+script = ExtResource("1_o0dkk")
+lines = Array[ExtResource("2_a1scf")]([SubResource("Resource_ydq4j"), SubResource("Resource_ni4q4"), SubResource("Resource_s0627")])
+required_flags = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_2hanm"]
+script = ExtResource("3_a2qed")
+actor_name = "Amy"
+pitch_offset = 1.0
+
+[sub_resource type="Resource" id="Resource_vsrft"]
+script = ExtResource("2_a1scf")
+actor = SubResource("Resource_2hanm")
+line = "im so lonely"
+flags = Array[String](["one", "two"])
+show_actor_portrait = false
+typewriter = false
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_syand"]
+script = ExtResource("2_a1scf")
+actor = SubResource("Resource_fxuxc")
+line = "im also so lonely"
+flags = Array[String](["one", "two", "three"])
+show_actor_portrait = false
+typewriter = false
+use_choices = true
+choice = SubResource("Resource_a2qed")
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_wsnnp"]
+script = ExtResource("1_o0dkk")
+lines = Array[ExtResource("2_a1scf")]([SubResource("Resource_vsrft"), SubResource("Resource_syand")])
+required_flags = Array[String]([])
+
+[resource]
+script = ExtResource("2_3bul7")
+approved_priority_conversations = Array[ExtResource("1_o0dkk")]([])
+priority_conversations = Array[ExtResource("1_o0dkk")]([])
+basic_conversations = Array[ExtResource("1_o0dkk")]([SubResource("Resource_3bul7"), SubResource("Resource_wsnnp"), ExtResource("5_yjif1"), ExtResource("6_ckipo")])

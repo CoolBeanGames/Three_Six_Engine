@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=2 format=3 uid="uid://3ytq21owojyg"]
+
+[ext_resource type="Script" uid="uid://bwgpv5sq6im4j" path="res://Kit/Dialog System/Data Types/Dialog_Choice.gd" id="1_ueuam"]
+
+[resource]
+script = ExtResource("1_ueuam")
+choice_one_text = ""
+choice_one_flags = Array[String]([])
+choice_two_text = ""
+choice_two_flags = Array[String]([])
+ui_selected = 0

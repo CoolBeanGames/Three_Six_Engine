@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DialogLine" load_steps=3 format=3 uid="uid://datqqpu8jmm77"]
+
+[ext_resource type="Resource" uid="uid://bn6bi2ksuq6lo" path="res://Data/Dialog/Actors/John.tres" id="1_qjmoc"]
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_psx25"]
+
+[resource]
+script = ExtResource("2_psx25")
+actor = ExtResource("1_qjmoc")
+line = "hey james"
+flags = Array[String](["one", "two"])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
