@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ConversationGroup" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="1_if7pt"]
+[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Conversation Group.gd" id="2_ipc6c"]
+
+[resource]
+script = ExtResource("2_ipc6c")
+approved_priority_conversations = Array[ExtResource("1_if7pt")]([])
+priority_conversations = Array[ExtResource("1_if7pt")]([])
+basic_conversations = Array[ExtResource("1_if7pt")]([])

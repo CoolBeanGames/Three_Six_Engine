@@ -1,5 +1,4 @@
-res://addons/Three_Six_Kit/dialog_importer.tscn
-res://addons/Three_Six_Kit/DialogImporter.gd
+res://addons/ThreeSix/DialogImporterUI.tscn
 res://Kit/Media/Themes/Dialog/dialog_box.tres
 res://Kit/Media/Themes/Dialog/dialog_choices.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_2_a.tres
@@ -7,4 +6,12 @@ res://Testing/Test Voiced Dialog/Conversations/Conversation_2_b.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_1_A.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_1_B.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_1.tres
-res://addons/Three_Six_Kit/dialog_importer_UI.gd
+res://addons/ThreeSix/dialog_importer_ui.gd
+res://Kit/UI/Scenes/game_ui.tscn
+res://Kit/Game.tscn
+res://Kit/Dialog System/Scenes/dialog_manager.tscn
+res://Kit/Audio Manager/audio_manager.tscn
+res://Kit/Audio Manager/audio_player.tscn
+res://Data/Dialog/Choices/Choice 1.tres
+res://Data/Dialog/Lines/line 1.tres
+res://Data/Dialog/Lines/line 2.tres

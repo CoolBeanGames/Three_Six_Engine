@@ -1,4 +1,5 @@
-conversation
-dialog_choice
+ConversationGroup
+Conversation
+DialogLine
 Actor
 Theme

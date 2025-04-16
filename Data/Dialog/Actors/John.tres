@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Actor.gd" id="1_s22ew"]
+
+[resource]
+script = ExtResource("1_s22ew")
+actor_name = "John"
+pitch_offset = 0.0

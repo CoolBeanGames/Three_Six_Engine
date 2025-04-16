@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_8m56n"]
+[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="2_mhyqr"]
+[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Dialog_Choice.gd" id="3_7baog"]
+
+[sub_resource type="Resource" id="Resource_qyvnu"]
+script = ExtResource("2_mhyqr")
+lines = Array[ExtResource("1_8m56n")]([])
+required_flags = Array[String]([])
+
+[resource]
+script = ExtResource("3_7baog")
+choice_one_text = ""
+choice_one_conversation = SubResource("Resource_qyvnu")
+choice_one_flags = Array[String]([])
+choice_two_text = ""
+choice_two_conversation = SubResource("Resource_qyvnu")
+choice_two_flags = Array[String]([])
+ui_selected = 0
