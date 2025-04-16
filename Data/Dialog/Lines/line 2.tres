@@ -1,16 +1,11 @@
-[gd_resource type="Resource" script_class="DialogLine" load_steps=4 format=3 uid="uid://dhwnbcxjvon0s"]
+[gd_resource type="Resource" script_class="DialogLine" load_steps=3 format=3]
 
-[ext_resource type="Script" uid="uid://d1sgqvt5r02de" path="res://Kit/Dialog System/Data Types/Actor.gd" id="1_31ftx"]
-[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_fie5a"]
-
-[sub_resource type="Resource" id="Resource_il88d"]
-script = ExtResource("1_31ftx")
-actor_name = "James"
-pitch_offset = 0.0
+[ext_resource type="Resource" path="res://Data/Dialog/Actors/James.tres" id="1_31ftx"]
+[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_fie5a"]
 
 [resource]
 script = ExtResource("2_fie5a")
-actor = SubResource("Resource_il88d")
+actor = ExtResource("1_31ftx")
 line = "hello john"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false

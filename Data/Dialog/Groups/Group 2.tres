@@ -1,10 +1,80 @@
-[gd_resource type="Resource" script_class="ConversationGroup" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="ConversationGroup" load_steps=14 format=3]
 
 [ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="1_o0dkk"]
 [ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Conversation Group.gd" id="2_3bul7"]
+[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_a1scf"]
+[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Actor.gd" id="3_a2qed"]
+[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Dialog_Choice.gd" id="4_yjif1"]
+[ext_resource type="Resource" path="res://Data/Dialog/Conversations/Convo 3.tres" id="5_yjif1"]
+
+[sub_resource type="Resource" id="Resource_k2vga"]
+script = ExtResource("3_a2qed")
+actor_name = "John"
+pitch_offset = 1.0
+
+[sub_resource type="Resource" id="Resource_ckipo"]
+script = ExtResource("4_yjif1")
+choice_one_text = ""
+choice_one_flags = Array[String]([])
+choice_two_text = ""
+choice_two_flags = Array[String]([])
+ui_selected = 0
+
+[sub_resource type="Resource" id="Resource_s0627"]
+script = ExtResource("2_a1scf")
+actor = SubResource("Resource_k2vga")
+line = "im also so lonely"
+flags = Array[String](["one", "two", "three"])
+show_actor_portrait = false
+typewriter = false
+use_choices = true
+choice = SubResource("Resource_ckipo")
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_ydq4j"]
+script = ExtResource("2_a1scf")
+actor = SubResource("Resource_k2vga")
+line = "im also so lonely"
+flags = Array[String](["one", "two", "three"])
+show_actor_portrait = false
+typewriter = false
+use_choices = true
+choice = SubResource("Resource_ckipo")
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_ni4q4"]
+script = ExtResource("2_a1scf")
+actor = SubResource("Resource_k2vga")
+line = "im also so lonely"
+flags = Array[String](["one", "two", "three"])
+show_actor_portrait = false
+typewriter = false
+use_choices = true
+choice = SubResource("Resource_ckipo")
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_qm0tu"]
+script = ExtResource("2_a1scf")
+actor = SubResource("Resource_k2vga")
+line = "im also so lonely"
+flags = Array[String](["one", "two", "three"])
+show_actor_portrait = false
+typewriter = false
+use_choices = true
+choice = SubResource("Resource_ckipo")
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_a2qed"]
+script = ExtResource("1_o0dkk")
+lines = Array[ExtResource("2_a1scf")]([SubResource("Resource_s0627"), SubResource("Resource_ydq4j"), SubResource("Resource_ni4q4"), SubResource("Resource_qm0tu")])
+required_flags = Array[String]([])
 
 [resource]
 script = ExtResource("2_3bul7")
 approved_priority_conversations = Array[ExtResource("1_o0dkk")]([])
 priority_conversations = Array[ExtResource("1_o0dkk")]([])
-basic_conversations = Array[ExtResource("1_o0dkk")]([])
+basic_conversations = Array[ExtResource("1_o0dkk")]([SubResource("Resource_a2qed"), ExtResource("5_yjif1")])

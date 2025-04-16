@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_pa32c")
 actor_name = "Amy"
-pitch_offset = 0.0
+pitch_offset = 1.0

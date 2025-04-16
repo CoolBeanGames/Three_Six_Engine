@@ -1,5 +1,6 @@
 @tool
 extends EditorPlugin
+class_name dialog_importer
 
 var control : PackedScene
 var instance : dialog_UI
@@ -15,17 +16,14 @@ func _enter_tree() -> void:
 	control = load("res://addons/ThreeSix/DialogImporterUI.tscn")
 	instance = control.instantiate()
 	add_control_to_bottom_panel(instance,"import UI")
-	pass
+	instance.import_finished.connect(reload_files)
 
 
 func _exit_tree() -> void:
 	remove_control_from_bottom_panel(instance)
-	instance.queue_free()
-	# Clean-up of the plugin goes here.
-	pass
+	instance.import_finished.disconnect(reload_files)
+	instance.queue_free()	
 
-func scan_trees():
-	pass
-
-func on_button():
-	pass
+func reload_files():
+	print("reloading files")
+	get_editor_interface().get_resource_filesystem().scan_sources()

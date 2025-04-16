@@ -13,8 +13,21 @@ var entries : Array[csvDataContainer] = []
 @export var Groups : Dictionary[String,ConversationGroup]
 @export var Choices : Dictionary[String,DialogChoice]
 
+var dialogDisplaySection : Control
+var dialogDisplay : PackedScene
+var displays : Array[Node] = []
+var httpsready : bool = false
+
+signal import_finished
+
+func reload():
+	if Engine.is_editor_hint():
+		get_node("/root/EditorNode").get_editor_interface().get_resource_filesystem().scan_sources()
+
 func _enter_tree() -> void:
 	import_csv_button = $HBoxContainer/Button
+	dialogDisplaySection = $VBoxContainer2/ScrollContainer/VBoxContainer
+	dialogDisplay = load("res://addons/ThreeSix/dialog_display_entry.tscn")
 
 func _on_import_csv_pressed() -> void:
 	load_and_sort_dialog_resources()
@@ -68,7 +81,18 @@ func extract_sheet_id(main_url: String) -> String:
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	print("HTTPS Request Completed: ", body.get_string_from_utf8())
-	$VBoxContainer/RichTextLabel.text = body.get_string_from_utf8()
+	var csv_string = body.get_string_from_utf8()
+	var lines : PackedStringArray = csv_string.split("\n")
+	
+	var data_lines = []
+	
+	for i in range(lines.size()):
+		if i > 0 or lines.size() == 1:
+			data_lines.append(lines[i])
+	
+	var data_string = str(data_lines) 
+	
+	$VBoxContainer/RichTextLabel.text = data_string
 
 	if response_code == 302 or response_code == 307: # Check for redirect status codes
 		var body_string = body.get_string_from_utf8()
@@ -92,7 +116,7 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 			var columns = row_string.split(",", false)
 			csv.append(columns)
 		print("Parsed CSV Data:", csv)
-		parse_csv()
+		httpsready = true
 	else:
 		printerr("Failed to download CSV. Result:", result, "Response Code:", response_code)
 
@@ -101,18 +125,19 @@ func parse_csv():
 	for s in csv:
 		if index >= 1: #for skipping the header
 			var data : csvDataContainer = csvDataContainer.new()
-
 			data.actor_name = s[0] if s.size() > 0 else ""
+			
 			data.group_name = s[1] if s.size() > 1 else ""
+			
 			data.convo_name = s[2] if s.size() > 2 else ""
+			
 			data.flags = []
 			if s.size() > 3 and not s[3].is_empty():
 				var flags_packed = s[3].split(" ")
 				for flag in flags_packed:
 					data.flags.append(flag)
 
-			data.line_name = s[4] if s.size() > 4 else ""
-			data.line_text = s[5] if s.size() > 5 else ""
+
 
 			data.use_typewriter = bool(str(s[6] if s.size() > 6 else "false").to_lower() == "true")
 			data.is_voiced = bool(str(s[7] if s.size() > 7 else "false").to_lower() == "true")
@@ -135,29 +160,31 @@ func parse_csv():
 				var choice_2_flags_packed = s[15].split(" ")
 				for flag in choice_2_flags_packed:
 					data.choice_2_Flags.append(flag)
+			data.line_name = s[4] if s.size() > 4 else ""
+			data.line_text = s[5] if s.size() > 5 else ""
 			
-			#create everything here
-			create_line(data.actor_name,data.group_name,data.convo_name,data.line_name,data.line_text,data.flags,data.use_typewriter,data.has_choice,data.choice_1_Convo_Name)
+			data.convo_object = create_convo(data.convo_name,data.group_name)
+			data.group_object = create_group(data.group_name)
+			data.actor_object = create_actor(data.actor_name)
+			if not data.is_voiced:
+				data.line_object = create_line(data.actor_name,data.group_name,data.convo_name,data.line_name,data.line_text,data.flags,data.use_typewriter,data.has_choice,data.choice_name)
+			else:
+				data.line_object = create_voice_line(data.actor_name,data.group_name,data.convo_name,data.line_name,data.line_text,data.flags,data.use_typewriter,data.has_choice,data.choice_name)
 			if data.has_choice:
 				create_choice(data.choice_name,data.choice_1_Text,data.choice_1_Convo_Name,data.choice_1_Flags,data.choice_2_Text,data.choice_2_Convo_Name,data.choice_2_Flags)
+			#create everything here
+			create_line(data.actor_name,data.group_name,data.convo_name,data.line_name,data.line_text,data.flags,data.use_typewriter,data.has_choice,data.choice_1_Convo_Name)
+			
 			entries.append(data)
 		index += 1
 	print("\n \n Entries Created:")
+	reload()
 	print(entries)
 
-func load_and_sort_dialog_resources(base_path: String = "res://Data") -> Dictionary:
-	var resources : Dictionary = {
-		"Actors": {},
-		"Lines": {},
-		"Convo": {},
-		"Groups": {},
-		"Choices": {}
-	}
+func load_and_sort_dialog_resources(base_path: String = "res://Data") :
 	ensure_dialog_directories()
 	var res :Array = find_dialog_resources()
 	sort_resources(res)
-	print(Actors.size())
-	return resources
 
 
 func ensure_dialog_directories(base_path: String = "res://Data", dialog_dir_name: String = "Dialog") -> bool:
@@ -247,26 +274,37 @@ func sort_resources(elements : Array):
 
 #create and return a new actor
 func create_actor(actor_name : String, pitch_offset : float = 1) -> Actor:
+	print("2.25: Creating a new Actor: " , actor_name )
 	if Actors.has(actor_name):
-		return Actors[actor_name]
-	else:
-		var A : Actor = Actor.new()
+		print("2.35: actor already exists, returning actor ", actor_name)
+		var A : Actor = Actors[actor_name]
+		A.pitch_offset = pitch_offset
 		A.actor_name = actor_name
 		
-		var path = "res://Data/Dialog/Actors/" + actor_name + ".tres"
-		var error = ResourceSaver.save(A,path)
-		if error == OK:
-			print("successfully created new Actor  " + actor_name)
-			Actors.set(actor_name,A)
+		if save_resource("Actors",actor_name,A,Actors) != " ":
 			return A
 		else:
-			printerr("failed to create Actor " + actor_name + " Path: " + path + " Error: " + error)
+			return null
+	else:
+		print("2.35: actor does not exist creating new actor", actor_name)
+		var A : Actor = Actor.new()
+		A.actor_name = actor_name
+		A.pitch_offset = pitch_offset
+		
+		if save_resource("Actors",actor_name,A,Actors) != " ":
+			return A
+		else:
 			return null
 	pass
 
 #create and return a new line
 func create_line(actor_name : String,group_name : String,convo_name : String, line_name : String, line : String, flags : Array[String], typewriter : bool, choices : bool, choice_name : String) -> DialogLine:
+	print("1: Creating line Actor: " , actor_name , " Line: " , line_name)
+	if line_name == "":
+		print("attempted to create a line with a blank name, returning")
+		return
 	if Lines.has(line_name):
+		print("2: Line already exists, populating data")
 		var l : DialogLine = Lines[line_name]
 		l.actor = create_actor(actor_name)
 		l.line = line
@@ -274,10 +312,16 @@ func create_line(actor_name : String,group_name : String,convo_name : String, li
 		l.typewriter = typewriter
 		l.use_choices = choices
 		if l.use_choices:
+			print("2.5: This Line Uses Choices Creating Choice")
 			l.choice = create_choice(choice_name)
 		add_line_to_convo(l,group_name,convo_name)
-		return l
+		
+		if save_resource("Lines",line_name,l,Lines) != " ":
+			return l
+		else:
+			return null
 	else:
+		print("2: non-existant line, creating a new one and populating it")
 		var l : DialogLine = DialogLine.new()
 		l.actor = create_actor(actor_name)
 		l.line = line
@@ -285,23 +329,18 @@ func create_line(actor_name : String,group_name : String,convo_name : String, li
 		l.typewriter = typewriter
 		l.use_choices = choices
 		if l.use_choices:
+			print("2.5: This Line Uses Choices Creating Choice")
 			l.choice = create_choice(choice_name)
 		
-		var path = "res://Data/Dialog/Lines/" + line_name + ".tres"
-		var error = ResourceSaver.save(l,path)
-		if error == OK:
-			print("successfully created new line  " + line_name)
-			Lines.set(line_name,l)
+		if save_resource("Lines",line_name,l,Lines) != " ":
 			add_line_to_convo(l,group_name,convo_name)
 			return l
 		else:
-			printerr("failed to create Line " + line_name + " Path: " + path + " Error: " + error)
 			return null
-		
-		add_line_to_convo(l,group_name,convo_name)
 
 ##adds a line to the conversation
 func add_line_to_convo(line : DialogLine , group_name : String, convo_name : String):
+	print("3: add line to convo")
 	var c : Conversation = create_convo(convo_name,group_name)
 	var already_added : bool = false
 	
@@ -310,17 +349,27 @@ func add_line_to_convo(line : DialogLine , group_name : String, convo_name : Str
 	else:
 		c.lines.append(line)
 		print("added line " + line.resource_name + " to convo ", convo_name)
+	
+	if save_resource("Conversations",convo_name,c,Convos) != " ":
+		pass
 
 #create and setup a conversation
 func create_convo(convo_name : String, group_name  : String= "", required_flag : Array[String] = []) -> Conversation:
 	if Convos.has(convo_name):
+		if convo_name == "":
+			print("attempted to create a convo with a blank name, returning")
+			return
 		var c : Conversation = Convos[convo_name]
 		if c.required_flags != required_flag:
 			c.required_flags = required_flag
 		if group_name!="":
 			assign_convo_to_group(c,group_name)
 		print("successfully updated conversation ", convo_name)
-		return c
+		
+		if save_resource("Conversations",convo_name,c,Convos) != " ":
+			return c
+		else:
+			return null
 	else:
 		var c : Conversation = Conversation.new()
 		c.required_flags = required_flag
@@ -331,7 +380,11 @@ func create_convo(convo_name : String, group_name  : String= "", required_flag :
 			Convos.set(convo_name,c)
 			if group_name!="":
 				assign_convo_to_group(c,group_name)
-			return c
+			
+			if save_resource("Conversations",convo_name,c,Convos) != " ":
+				return c
+			else:
+				return null
 		else:
 			printerr("failed to create Conversation " + convo_name + " Path: " + path + " Error: " + error)
 			return null
@@ -351,24 +404,30 @@ func assign_convo_to_group(convo : Conversation, group_name : String):
 		else:
 			g.priority_conversations.append(convo)
 			print("convo has " + str(convo.required_flags.size()) + " flags, appending to priority conversations")
+	
+	if save_resource("Groups",group_name,g,Groups) != " ":
+		pass
 
 ##create and setup a group
 func create_group(group_name : String) -> ConversationGroup:
+	if group_name == "":
+			print("attempted to create a group with a blank name, returning")
+			return
 	if Groups.has(group_name):
 		var g = Groups[group_name]
 		print("group already existed, returning")
-		return g
+		
+		if save_resource("Groups",group_name,g,Groups) != " ":
+			return g
+		else:
+			return null
 	else:
 		var g = ConversationGroup.new()
 		print("creating new group " , group_name)
-		var path = "res://Data/Dialog/Groups/" + group_name + ".tres"
-		var error = ResourceSaver.save(g,path)
-		if error == OK:
-			print("successfully created new conversation group " + group_name)
-			Groups.set(group_name,g)
+		
+		if save_resource("Groups",group_name,g,Groups) != " ":
 			return g
 		else:
-			printerr("failed to create group " + group_name + " Path: " + path + " Error: " + error)
 			return null
 	pass
 
@@ -385,7 +444,11 @@ func create_voice_line(actor_name : String,group_name : String,convo_name : Stri
 		l.choice = create_choice(choice_name)
 		if l.use_choices:
 			l.choice = create_choice(choice_name)
-		return l
+			
+		if save_resource("Lines",line_name,l,Lines) != " ":
+			return l
+		else:
+			return null
 	else:
 		var l : VoicedDialogLine = VoicedDialogLine.new()
 		l.actor = create_actor(actor_name)
@@ -396,22 +459,16 @@ func create_voice_line(actor_name : String,group_name : String,convo_name : Stri
 		if l.use_choices:
 			l.choice = create_choice(choice_name)
 		
-		var path = "res://Data/Dialog/Lines/" + line_name + ".tres"
-		var error = ResourceSaver.save(l,path)
-		if error == OK:
-			print("successfully created new line  " + line_name)
-			Lines.set(line_name,l)
+		if save_resource("Lines",line_name,l,Lines) != " ":
 			add_line_to_convo(l,group_name,convo_name)
 			return l
 		else:
-			printerr("failed to create Line " + line_name + " Path: " + path + " Error: " + error)
 			return null
-		
-		add_line_to_convo(l,group_name,convo_name)
 
 #create and return a choice
 func create_choice(choice_name : String, choice_1_text : String = "", choice_1_convo : String = "", choice_1_flags : Array[String] = [], choice_2_text : String= "", choice_2_convo : String= "", choice_2_flags : Array[String]= []) -> DialogChoice:
 	if Choices.has(choice_name):
+		print("2.65: choice already exists, pulling in and linking up data")
 		var c : DialogChoice = Choices[choice_name]
 		if c.choice_one_text != choice_1_text and choice_1_text != "":
 			c.choice_one_text = choice_1_text
@@ -423,8 +480,12 @@ func create_choice(choice_name : String, choice_1_text : String = "", choice_1_c
 			c.choice_two_flags = choice_2_flags
 		c.choice_one_conversation = create_convo(choice_1_convo)
 		c.choice_two_conversation = create_convo(choice_2_convo)
-		return c
+		if save_resource("Choices",choice_name,c,Choices) != " ":
+			return c
+		else:
+			return null
 	else:
+		print("2.65: choice does not  exists, creating and linking up data")
 		var c : DialogChoice = DialogChoice.new()
 		c.choice_one_text = choice_1_text
 		c.choice_two_text = choice_2_text
@@ -433,13 +494,41 @@ func create_choice(choice_name : String, choice_1_text : String = "", choice_1_c
 		c.choice_one_conversation = create_convo(choice_1_convo)
 		c.choice_two_conversation = create_convo(choice_2_convo)
 		
-		var path = "res://Data/Dialog/Choices/" + choice_name + ".tres"
-		var error = ResourceSaver.save(c,path)
-		if error == OK:
-			print("successfully created new Choice  " + choice_name)
-			Choices.set(choice_name,c)
+		if save_resource("Choices",choice_name,c,Choices) != " ":
 			return c
 		else:
-			printerr("failed to create choice " + choice_name + " Path: " + path + " Error: " + error)
 			return null
+		
 	pass
+
+func save_resource(type : String, name:String , res : Resource, dict : Dictionary) -> String:
+	print("Attempting to save Resource " , name , " of type " , type)
+	var path = "res://Data/Dialog/" + type + "/" + name + ".tres"
+	var error = ResourceSaver.save(res,path)
+	if error == OK:
+		print("successfully created new " + type + " " + name)
+		dict.set(name,res)
+		return str(error)
+	else:
+		printerr("failed to create choice " + name + " Path: " + path + " Error: " + error)
+		return " "
+
+func create_dialog_display_object(actor_name : String, group_name : String, Conversation_name : String, Line_Name : String, Line : String, is_Voiced: bool, already_Exists : bool):
+	
+	var o : dialog_display_entry = dialogDisplay.instantiate()
+	o.setup(actor_name,group_name,Conversation_name,Line_Name,Line,is_Voiced,already_Exists)
+	dialogDisplaySection.add_child(o)
+	displays.append(o)
+
+func _on_parse_info_button_pressed() -> void:
+	if httpsready:
+		for d in displays:
+			d.queue_free()
+			displays.clear()
+		parse_csv()
+		for e in entries:
+			print("parsing an entry ", e.line_name)
+			create_dialog_display_object(e.actor_name,e.group_name,e.convo_name,e.line_name,e.line_text,e.is_voiced,does_line_exist(e.line_name))
+
+func does_line_exist(line_name : String) -> bool:
+	return Lines.has(line_name)

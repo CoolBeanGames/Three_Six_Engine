@@ -1,14 +1,14 @@
+VBoxContainer
+ScrollContainer
+Button
 HTTPRequest
 Label
 HBoxContainer
 CheckButton
 CheckBox
-VBoxContainer
 RichTextLabel
-Button
 TextEdit
 VScrollBar
 Panel
 MarginContainer
 Timer
-AudioStreamPlayer

@@ -4,6 +4,7 @@ var actor_name : String
 var actor_object : Actor
 var line_text : String
 var line_name : String
+var line_object : DialogLine
 var group_name : String
 var group_object : ConversationGroup
 var convo_name : String

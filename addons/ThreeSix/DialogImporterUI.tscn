@@ -35,6 +35,7 @@ text = "Import CSV"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -44,6 +45,7 @@ horizontal_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -100,155 +102,15 @@ size_flags_horizontal = 3
 text = "already exists"
 horizontal_alignment = 1
 
-[node name="Entry" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Actor" type="Label" parent="VBoxContainer2/Entry"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="Group" type="Label" parent="VBoxContainer2/Entry"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="Conversation" type="Label" parent="VBoxContainer2/Entry"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="Line Name" type="Label" parent="VBoxContainer2/Entry"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="Line" type="Label" parent="VBoxContainer2/Entry"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="is_voiced" type="CheckButton" parent="VBoxContainer2/Entry"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "voiced:"
-icon_alignment = 1
-
-[node name="already exists" type="CheckButton" parent="VBoxContainer2/Entry"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "exists:"
-icon_alignment = 1
-
-[node name="Entry2" type="HBoxContainer" parent="VBoxContainer2"]
-layout_mode = 2
-
-[node name="Actor" type="Label" parent="VBoxContainer2/Entry2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="Group" type="Label" parent="VBoxContainer2/Entry2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="Conversation" type="Label" parent="VBoxContainer2/Entry2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="Line Name" type="Label" parent="VBoxContainer2/Entry2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="Line" type="Label" parent="VBoxContainer2/Entry2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="is_voiced" type="CheckButton" parent="VBoxContainer2/Entry2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "voiced:"
-icon_alignment = 1
-
-[node name="already exists" type="CheckButton" parent="VBoxContainer2/Entry2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "exists:"
-icon_alignment = 1
-
-[node name="Entry3" type="HBoxContainer" parent="VBoxContainer2"]
-layout_mode = 2
-
-[node name="Actor" type="Label" parent="VBoxContainer2/Entry3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="Group" type="Label" parent="VBoxContainer2/Entry3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="Conversation" type="Label" parent="VBoxContainer2/Entry3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="Line Name" type="Label" parent="VBoxContainer2/Entry3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="Line" type="Label" parent="VBoxContainer2/Entry3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "[]"
-horizontal_alignment = 1
-
-[node name="is_voiced" type="CheckButton" parent="VBoxContainer2/Entry3"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "voiced:"
-icon_alignment = 1
-
-[node name="already exists" type="CheckButton" parent="VBoxContainer2/Entry3"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "exists:"
-icon_alignment = 1
+size_flags_vertical = 3
 
 [node name="info" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -273,7 +135,24 @@ text = "         "
 layout_mode = 2
 text = "Pre-Existing Items: 0"
 
+[node name="Spacer3" type="Label" parent="info"]
+layout_mode = 2
+text = "                                                                        "
+
+[node name="parse_info_button" type="Button" parent="info"]
+layout_mode = 2
+text = "Parse CSV Data"
+
+[node name="Spacer4" type="Label" parent="info"]
+layout_mode = 2
+text = "         "
+
+[node name="save_resourced_button" type="Button" parent="info"]
+layout_mode = 2
+text = "Save Resources"
+
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_import_csv_pressed"]
+[connection signal="pressed" from="info/parse_info_button" to="." method="_on_parse_info_button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

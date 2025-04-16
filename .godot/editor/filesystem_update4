@@ -6,12 +6,18 @@ res://Testing/Test Voiced Dialog/Conversations/Conversation_2_b.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_1_A.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_1_B.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_1.tres
-res://addons/ThreeSix/dialog_importer_ui.gd
+res://Kit/Dialog System/Data Types/Actor.gd
 res://Kit/UI/Scenes/game_ui.tscn
 res://Kit/Game.tscn
 res://Kit/Dialog System/Scenes/dialog_manager.tscn
 res://Kit/Audio Manager/audio_manager.tscn
 res://Kit/Audio Manager/audio_player.tscn
+res://addons/ThreeSix/dialog_display_entry.tscn
 res://Data/Dialog/Choices/Choice 1.tres
+res://Data/Dialog/Conversations/Convo 1.tres
+res://Data/Dialog/Conversations/Convo 2.tres
 res://Data/Dialog/Lines/line 1.tres
-res://Data/Dialog/Lines/line 2.tres
+res://Data/Dialog/Groups/Group 1.tres
+res://Data/Dialog/Actors/Amy.tres
+res://Data/Dialog/Actors/James.tres
+res://Data/Dialog/Actors/John.tres

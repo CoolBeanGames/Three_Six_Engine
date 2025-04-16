@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Conversation" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="Conversation" load_steps=3 format=3 uid="uid://cewmqgji1i40i"]
 
-[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_s53gh"]
-[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="2_bil76"]
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_s53gh"]
+[ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="2_bil76"]
 
 [resource]
 script = ExtResource("2_bil76")

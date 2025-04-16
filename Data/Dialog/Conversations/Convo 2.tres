@@ -1,9 +1,63 @@
-[gd_resource type="Resource" script_class="Conversation" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="Conversation" load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_lxdyv"]
+[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Actor.gd" id="2_0btjw"]
 [ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="2_riecq"]
+[ext_resource type="Resource" path="res://Data/Dialog/Lines/line 3.tres" id="3_0btjw"]
+[ext_resource type="Resource" path="res://Data/Dialog/Lines/line 7.tres" id="4_qs68x"]
+[ext_resource type="Resource" path="res://Data/Dialog/Lines/line 11.tres" id="5_smddw"]
+[ext_resource type="Resource" path="res://Data/Dialog/Lines/line 15.tres" id="6_heel6"]
+
+[sub_resource type="Resource" id="Resource_x2ahs"]
+script = ExtResource("2_0btjw")
+actor_name = "Amy"
+pitch_offset = 1.0
+
+[sub_resource type="Resource" id="Resource_qs68x"]
+script = ExtResource("1_lxdyv")
+actor = SubResource("Resource_x2ahs")
+line = "im so lonely"
+flags = Array[String](["one", "two"])
+show_actor_portrait = false
+typewriter = false
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_riecq"]
+script = ExtResource("1_lxdyv")
+actor = SubResource("Resource_x2ahs")
+line = "im so lonely"
+flags = Array[String](["one", "two"])
+show_actor_portrait = false
+typewriter = false
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_0btjw"]
+script = ExtResource("1_lxdyv")
+actor = SubResource("Resource_x2ahs")
+line = "im so lonely"
+flags = Array[String](["one", "two"])
+show_actor_portrait = false
+typewriter = false
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_smddw"]
+script = ExtResource("1_lxdyv")
+actor = SubResource("Resource_x2ahs")
+line = "im so lonely"
+flags = Array[String](["one", "two"])
+show_actor_portrait = false
+typewriter = false
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
 
 [resource]
 script = ExtResource("2_riecq")
-lines = Array[ExtResource("1_lxdyv")]([])
+lines = Array[ExtResource("1_lxdyv")]([SubResource("Resource_qs68x"), SubResource("Resource_riecq"), SubResource("Resource_0btjw"), SubResource("Resource_smddw"), ExtResource("3_0btjw"), ExtResource("4_qs68x"), ExtResource("5_smddw"), ExtResource("6_heel6")])
 required_flags = Array[String]([])
