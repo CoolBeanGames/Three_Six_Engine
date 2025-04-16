@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="DialogLine" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="DialogLine" load_steps=3 format=3 uid="uid://cgqqicyiru8fs"]
 
-[ext_resource type="Resource" path="res://Data/Dialog/Actors/James.tres" id="1_31ftx"]
-[ext_resource type="Script" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_fie5a"]
+[ext_resource type="Resource" uid="uid://gu3frj5wcx61" path="res://Data/Dialog/Actors/James.tres" id="1_31ftx"]
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_fie5a"]
 
 [resource]
 script = ExtResource("2_fie5a")

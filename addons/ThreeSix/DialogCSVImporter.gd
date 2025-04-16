@@ -11,12 +11,16 @@ var Convos : Array[Conversation] = []
 var groups : Array[ConversationGroup] = []
 var choices : Array[DialogChoice] = []
 
+
+
 func _enter_tree() -> void:
 	# Initialization of the plugin goes here.
 	control = load("res://addons/ThreeSix/DialogImporterUI.tscn")
 	instance = control.instantiate()
 	add_control_to_bottom_panel(instance,"import UI")
 	instance.import_finished.connect(reload_files)
+	instance.parent = self
+	print(instance.parent)
 
 
 func _exit_tree() -> void:
