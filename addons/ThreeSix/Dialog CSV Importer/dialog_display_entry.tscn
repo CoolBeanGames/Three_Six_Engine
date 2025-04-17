@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cdy16jjr6cq11"]
 
-[ext_resource type="Script" uid="uid://d4ihkcm588aem" path="res://addons/ThreeSix/setup_data_for_entry.gd" id="1_ojr5j"]
+[ext_resource type="Script" uid="uid://d4ihkcm588aem" path="res://addons/ThreeSix/Dialog CSV Importer/setup_data_for_entry.gd" id="1_ojr5j"]
 
 [node name="DialogDisplayEntry" type="HBoxContainer"]
 script = ExtResource("1_ojr5j")

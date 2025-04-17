@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="DialogLine" load_steps=3 format=3 uid="uid://cw0pcwpdjojpr"]
+[gd_resource type="Resource" script_class="DialogLine" load_steps=3 format=3 uid="uid://cahs3lxgy8ty0"]
 
-[ext_resource type="Resource" uid="uid://b3lihq0tamwoq" path="res://Data/Dialog/Actors/Amy.tres" id="1_mvu8h"]
+[ext_resource type="Resource" uid="uid://cxo55dtyojhm7" path="res://Data/Dialog/Actors/Amy.tres" id="1_mvu8h"]
 [ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_e67ov"]
 
 [resource]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Actor" load_steps=2 format=3 uid="uid://gu3frj5wcx61"]
+[gd_resource type="Resource" script_class="Actor" load_steps=2 format=3 uid="uid://br4b4ycquulhc"]
 
 [ext_resource type="Script" uid="uid://d1sgqvt5r02de" path="res://Kit/Dialog System/Data Types/Actor.gd" id="1_7fspl"]
 

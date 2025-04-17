@@ -1,22 +1,21 @@
-[gd_resource type="Resource" script_class="Conversation" load_steps=12 format=3 uid="uid://bs3tsvdfxks7l"]
+[gd_resource type="Resource" script_class="Conversation" load_steps=12 format=3 uid="uid://1njcwpi6gjla"]
 
 [ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_l18w6"]
 [ext_resource type="Script" uid="uid://d1sgqvt5r02de" path="res://Kit/Dialog System/Data Types/Actor.gd" id="2_p32pp"]
 [ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="2_s6qrg"]
 [ext_resource type="Script" uid="uid://bwgpv5sq6im4j" path="res://Kit/Dialog System/Data Types/Dialog_Choice.gd" id="3_p32pp"]
-[ext_resource type="Resource" uid="uid://cw0pcwpdjojpr" path="res://Data/Dialog/Lines/line 15.tres" id="4_vsrft"]
-[ext_resource type="Resource" uid="uid://cabw7l0ixt18i" path="res://Data/Dialog/Lines/line 16.tres" id="5_syand"]
+[ext_resource type="Resource" uid="uid://cahs3lxgy8ty0" path="res://Data/Dialog/Lines/line 15.tres" id="4_vsrft"]
+[ext_resource type="Resource" uid="uid://clgs28m3qgroc" path="res://Data/Dialog/Lines/line 16.tres" id="5_syand"]
 
-[sub_resource type="Resource" id="Resource_2hanm"]
+[sub_resource type="Resource" id="Resource_x2ahs"]
 script = ExtResource("2_p32pp")
 actor_name = "Amy"
 pitch_offset = 1.0
 
 [sub_resource type="Resource" id="Resource_vsrft"]
 script = ExtResource("1_l18w6")
-actor = SubResource("Resource_2hanm")
-line = "im so lonely haha
-"
+actor = SubResource("Resource_x2ahs")
+line = "im so lonely"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false
 typewriter = false
@@ -24,12 +23,12 @@ use_choices = false
 auto_confirm = false
 confirm_on_typewriter_end = false
 
-[sub_resource type="Resource" id="Resource_fxuxc"]
+[sub_resource type="Resource" id="Resource_k2vga"]
 script = ExtResource("2_p32pp")
 actor_name = "John"
 pitch_offset = 1.0
 
-[sub_resource type="Resource" id="Resource_a2qed"]
+[sub_resource type="Resource" id="Resource_7sk6j"]
 script = ExtResource("3_p32pp")
 choice_one_text = ""
 choice_one_flags = Array[String]([])
@@ -39,13 +38,13 @@ ui_selected = 0
 
 [sub_resource type="Resource" id="Resource_syand"]
 script = ExtResource("1_l18w6")
-actor = SubResource("Resource_fxuxc")
+actor = SubResource("Resource_k2vga")
 line = "im also so lonely"
 flags = Array[String](["one", "two", "three"])
 show_actor_portrait = false
 typewriter = false
 use_choices = true
-choice = SubResource("Resource_a2qed")
+choice = SubResource("Resource_7sk6j")
 auto_confirm = false
 confirm_on_typewriter_end = false
 

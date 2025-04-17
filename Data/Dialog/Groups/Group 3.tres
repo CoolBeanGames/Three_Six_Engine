@@ -1,11 +1,50 @@
-[gd_resource type="Resource" script_class="ConversationGroup" load_steps=4 format=3 uid="uid://db83qtmawyygb"]
+[gd_resource type="Resource" script_class="ConversationGroup" load_steps=11 format=3 uid="uid://b2osevw8x6fsj"]
 
 [ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="1_sd1rm"]
 [ext_resource type="Script" uid="uid://cmee8yawiwlle" path="res://Kit/Dialog System/Data Types/Conversation Group.gd" id="2_bt7g0"]
-[ext_resource type="Resource" uid="uid://cahx5wbv15roa" path="res://Data/Dialog/Conversations/Convo 5.tres" id="2_vxpc1"]
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_vxpc1"]
+[ext_resource type="Script" uid="uid://d1sgqvt5r02de" path="res://Kit/Dialog System/Data Types/Actor.gd" id="3_vxpc1"]
+[ext_resource type="Resource" uid="uid://dfovqqlu7itac" path="res://Data/Dialog/Conversations/Convo 5.tres" id="4_l5jxd"]
+
+[sub_resource type="Resource" id="Resource_k2vga"]
+script = ExtResource("3_vxpc1")
+actor_name = "John"
+pitch_offset = 1.0
+
+[sub_resource type="Resource" id="Resource_mrr7g"]
+script = ExtResource("2_vxpc1")
+actor = SubResource("Resource_k2vga")
+line = "hey james"
+flags = Array[String](["one", "two"])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_il88d"]
+script = ExtResource("3_vxpc1")
+actor_name = "James"
+pitch_offset = 1.0
+
+[sub_resource type="Resource" id="Resource_cl3j6"]
+script = ExtResource("2_vxpc1")
+actor = SubResource("Resource_il88d")
+line = "hello john"
+flags = Array[String](["one", "two"])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+
+[sub_resource type="Resource" id="Resource_l5jxd"]
+script = ExtResource("1_sd1rm")
+lines = Array[ExtResource("2_vxpc1")]([SubResource("Resource_mrr7g"), SubResource("Resource_cl3j6")])
+required_flags = Array[String]([])
 
 [resource]
 script = ExtResource("2_bt7g0")
 approved_priority_conversations = Array[ExtResource("1_sd1rm")]([])
 priority_conversations = Array[ExtResource("1_sd1rm")]([])
-basic_conversations = Array[ExtResource("1_sd1rm")]([ExtResource("2_vxpc1")])
+basic_conversations = Array[ExtResource("1_sd1rm")]([SubResource("Resource_l5jxd"), ExtResource("4_l5jxd")])

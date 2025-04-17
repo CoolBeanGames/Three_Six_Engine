@@ -35,7 +35,7 @@ movie_writer/movie_file="/storage/emulated/0/Documents/36_movie_dialog_b.avi"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ThreeSix/plugin.cfg")
+enabled=PackedStringArray("res://addons/ThreeSix/Dialog CSV Importer/plugin.cfg")
 
 [input]
 

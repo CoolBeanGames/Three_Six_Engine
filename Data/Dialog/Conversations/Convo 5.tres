@@ -1,19 +1,19 @@
-[gd_resource type="Resource" script_class="Conversation" load_steps=10 format=3 uid="uid://cahx5wbv15roa"]
+[gd_resource type="Resource" script_class="Conversation" load_steps=10 format=3 uid="uid://dfovqqlu7itac"]
 
 [ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_fxb0q"]
 [ext_resource type="Script" uid="uid://d1sgqvt5r02de" path="res://Kit/Dialog System/Data Types/Actor.gd" id="2_02tn4"]
 [ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="2_cl3j6"]
-[ext_resource type="Resource" uid="uid://dfm05jacqs0uo" path="res://Data/Dialog/Lines/line 13.tres" id="3_02tn4"]
-[ext_resource type="Resource" uid="uid://cprj26hgjwmse" path="res://Data/Dialog/Lines/line 14.tres" id="4_mrr7g"]
+[ext_resource type="Resource" uid="uid://yprjc4fc3m7a" path="res://Data/Dialog/Lines/line 13.tres" id="3_02tn4"]
+[ext_resource type="Resource" uid="uid://bjp568fqhvsjq" path="res://Data/Dialog/Lines/line 14.tres" id="4_mrr7g"]
 
-[sub_resource type="Resource" id="Resource_fxuxc"]
+[sub_resource type="Resource" id="Resource_k2vga"]
 script = ExtResource("2_02tn4")
 actor_name = "John"
 pitch_offset = 1.0
 
 [sub_resource type="Resource" id="Resource_mrr7g"]
 script = ExtResource("1_fxb0q")
-actor = SubResource("Resource_fxuxc")
+actor = SubResource("Resource_k2vga")
 line = "hey james"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false
@@ -22,14 +22,14 @@ use_choices = false
 auto_confirm = false
 confirm_on_typewriter_end = false
 
-[sub_resource type="Resource" id="Resource_31ftx"]
+[sub_resource type="Resource" id="Resource_il88d"]
 script = ExtResource("2_02tn4")
 actor_name = "James"
 pitch_offset = 1.0
 
 [sub_resource type="Resource" id="Resource_cl3j6"]
 script = ExtResource("1_fxb0q")
-actor = SubResource("Resource_31ftx")
+actor = SubResource("Resource_il88d")
 line = "hello john"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false

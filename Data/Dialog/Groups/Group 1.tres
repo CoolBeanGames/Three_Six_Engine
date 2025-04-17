@@ -1,21 +1,21 @@
-[gd_resource type="Resource" script_class="ConversationGroup" load_steps=27 format=3 uid="uid://dqttf63fvsmo8"]
+[gd_resource type="Resource" script_class="ConversationGroup" load_steps=24 format=3 uid="uid://bx10hei57c76b"]
 
 [ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="1_if7pt"]
 [ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_a4fpi"]
 [ext_resource type="Script" uid="uid://cmee8yawiwlle" path="res://Kit/Dialog System/Data Types/Conversation Group.gd" id="2_ipc6c"]
 [ext_resource type="Script" uid="uid://d1sgqvt5r02de" path="res://Kit/Dialog System/Data Types/Actor.gd" id="3_a4fpi"]
-[ext_resource type="Resource" uid="uid://b002rb6y6jj3b" path="res://Data/Dialog/Conversations/Convo 1.tres" id="4_uf03u"]
-[ext_resource type="Resource" uid="uid://dkmstw7xqu7mm" path="res://Data/Dialog/Conversations/Convo 2.tres" id="5_bvkhd"]
-[ext_resource type="Resource" uid="uid://bs3tsvdfxks7l" path="res://Data/Dialog/Conversations/Convo 4.tres" id="6_bb4ig"]
+[ext_resource type="Resource" uid="uid://cxwxsavna21ev" path="res://Data/Dialog/Conversations/Convo 1.tres" id="4_uf03u"]
+[ext_resource type="Resource" uid="uid://c8vn1lodb0lwl" path="res://Data/Dialog/Conversations/Convo 2.tres" id="5_bvkhd"]
+[ext_resource type="Resource" uid="uid://1njcwpi6gjla" path="res://Data/Dialog/Conversations/Convo 4.tres" id="6_bb4ig"]
 
-[sub_resource type="Resource" id="Resource_fxuxc"]
+[sub_resource type="Resource" id="Resource_k2vga"]
 script = ExtResource("3_a4fpi")
 actor_name = "John"
 pitch_offset = 1.0
 
-[sub_resource type="Resource" id="Resource_aem83"]
+[sub_resource type="Resource" id="Resource_i68hr"]
 script = ExtResource("2_a4fpi")
-actor = SubResource("Resource_fxuxc")
+actor = SubResource("Resource_k2vga")
 line = "hey james"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false
@@ -24,14 +24,14 @@ use_choices = false
 auto_confirm = false
 confirm_on_typewriter_end = false
 
-[sub_resource type="Resource" id="Resource_31ftx"]
+[sub_resource type="Resource" id="Resource_il88d"]
 script = ExtResource("3_a4fpi")
 actor_name = "James"
 pitch_offset = 1.0
 
-[sub_resource type="Resource" id="Resource_gq8xv"]
+[sub_resource type="Resource" id="Resource_aem83"]
 script = ExtResource("2_a4fpi")
-actor = SubResource("Resource_31ftx")
+actor = SubResource("Resource_il88d")
 line = "hello john"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false
@@ -40,9 +40,9 @@ use_choices = false
 auto_confirm = false
 confirm_on_typewriter_end = false
 
-[sub_resource type="Resource" id="Resource_i68hr"]
+[sub_resource type="Resource" id="Resource_gq8xv"]
 script = ExtResource("2_a4fpi")
-actor = SubResource("Resource_fxuxc")
+actor = SubResource("Resource_k2vga")
 line = "hey james"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false
@@ -53,7 +53,7 @@ confirm_on_typewriter_end = false
 
 [sub_resource type="Resource" id="Resource_0eykj"]
 script = ExtResource("2_a4fpi")
-actor = SubResource("Resource_31ftx")
+actor = SubResource("Resource_il88d")
 line = "hello john"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false
@@ -64,7 +64,7 @@ confirm_on_typewriter_end = false
 
 [sub_resource type="Resource" id="Resource_lmvjf"]
 script = ExtResource("2_a4fpi")
-actor = SubResource("Resource_fxuxc")
+actor = SubResource("Resource_k2vga")
 line = "hey james"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false
@@ -75,7 +75,7 @@ confirm_on_typewriter_end = false
 
 [sub_resource type="Resource" id="Resource_hko2g"]
 script = ExtResource("2_a4fpi")
-actor = SubResource("Resource_31ftx")
+actor = SubResource("Resource_il88d")
 line = "hello john"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false
@@ -84,19 +84,30 @@ use_choices = false
 auto_confirm = false
 confirm_on_typewriter_end = false
 
-[sub_resource type="Resource" id="Resource_ipc6c"]
+[sub_resource type="Resource" id="Resource_uf03u"]
 script = ExtResource("1_if7pt")
-lines = Array[ExtResource("2_a4fpi")]([SubResource("Resource_aem83"), SubResource("Resource_gq8xv"), SubResource("Resource_i68hr"), SubResource("Resource_0eykj"), SubResource("Resource_lmvjf"), SubResource("Resource_hko2g")])
+lines = Array[ExtResource("2_a4fpi")]([SubResource("Resource_i68hr"), SubResource("Resource_aem83"), SubResource("Resource_gq8xv"), SubResource("Resource_0eykj"), SubResource("Resource_lmvjf"), SubResource("Resource_hko2g")])
 required_flags = Array[String]([])
 
-[sub_resource type="Resource" id="Resource_2hanm"]
+[sub_resource type="Resource" id="Resource_x2ahs"]
 script = ExtResource("3_a4fpi")
 actor_name = "Amy"
 pitch_offset = 1.0
 
+[sub_resource type="Resource" id="Resource_qs68x"]
+script = ExtResource("2_a4fpi")
+actor = SubResource("Resource_x2ahs")
+line = "im so lonely"
+flags = Array[String](["one", "two"])
+show_actor_portrait = false
+typewriter = false
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+
 [sub_resource type="Resource" id="Resource_riecq"]
 script = ExtResource("2_a4fpi")
-actor = SubResource("Resource_2hanm")
+actor = SubResource("Resource_x2ahs")
 line = "im so lonely"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false
@@ -107,18 +118,7 @@ confirm_on_typewriter_end = false
 
 [sub_resource type="Resource" id="Resource_0btjw"]
 script = ExtResource("2_a4fpi")
-actor = SubResource("Resource_2hanm")
-line = "im so lonely"
-flags = Array[String](["one", "two"])
-show_actor_portrait = false
-typewriter = false
-use_choices = false
-auto_confirm = false
-confirm_on_typewriter_end = false
-
-[sub_resource type="Resource" id="Resource_qs68x"]
-script = ExtResource("2_a4fpi")
-actor = SubResource("Resource_2hanm")
+actor = SubResource("Resource_x2ahs")
 line = "im so lonely"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false
@@ -129,39 +129,12 @@ confirm_on_typewriter_end = false
 
 [sub_resource type="Resource" id="Resource_a4fpi"]
 script = ExtResource("1_if7pt")
-lines = Array[ExtResource("2_a4fpi")]([SubResource("Resource_riecq"), SubResource("Resource_0btjw"), SubResource("Resource_qs68x")])
-required_flags = Array[String]([])
-
-[sub_resource type="Resource" id="Resource_mrr7g"]
-script = ExtResource("2_a4fpi")
-actor = SubResource("Resource_fxuxc")
-line = "hey james"
-flags = Array[String](["one", "two"])
-show_actor_portrait = false
-typewriter = true
-use_choices = false
-auto_confirm = false
-confirm_on_typewriter_end = false
-
-[sub_resource type="Resource" id="Resource_cl3j6"]
-script = ExtResource("2_a4fpi")
-actor = SubResource("Resource_31ftx")
-line = "hello john"
-flags = Array[String](["one", "two"])
-show_actor_portrait = false
-typewriter = true
-use_choices = false
-auto_confirm = false
-confirm_on_typewriter_end = false
-
-[sub_resource type="Resource" id="Resource_xbrqs"]
-script = ExtResource("1_if7pt")
-lines = Array[ExtResource("2_a4fpi")]([SubResource("Resource_mrr7g"), SubResource("Resource_cl3j6")])
+lines = Array[ExtResource("2_a4fpi")]([SubResource("Resource_qs68x"), SubResource("Resource_riecq"), SubResource("Resource_0btjw")])
 required_flags = Array[String]([])
 
 [sub_resource type="Resource" id="Resource_vsrft"]
 script = ExtResource("2_a4fpi")
-actor = SubResource("Resource_2hanm")
+actor = SubResource("Resource_x2ahs")
 line = "im so lonely"
 flags = Array[String](["one", "two"])
 show_actor_portrait = false
@@ -170,7 +143,7 @@ use_choices = false
 auto_confirm = false
 confirm_on_typewriter_end = false
 
-[sub_resource type="Resource" id="Resource_wsnnp"]
+[sub_resource type="Resource" id="Resource_0gcq0"]
 script = ExtResource("1_if7pt")
 lines = Array[ExtResource("2_a4fpi")]([SubResource("Resource_vsrft")])
 required_flags = Array[String]([])
@@ -179,4 +152,4 @@ required_flags = Array[String]([])
 script = ExtResource("2_ipc6c")
 approved_priority_conversations = Array[ExtResource("1_if7pt")]([])
 priority_conversations = Array[ExtResource("1_if7pt")]([])
-basic_conversations = Array[ExtResource("1_if7pt")]([SubResource("Resource_ipc6c"), SubResource("Resource_a4fpi"), SubResource("Resource_xbrqs"), SubResource("Resource_wsnnp"), ExtResource("4_uf03u"), ExtResource("5_bvkhd"), ExtResource("6_bb4ig")])
+basic_conversations = Array[ExtResource("1_if7pt")]([SubResource("Resource_uf03u"), SubResource("Resource_a4fpi"), SubResource("Resource_0gcq0"), ExtResource("4_uf03u"), ExtResource("5_bvkhd"), ExtResource("6_bb4ig")])

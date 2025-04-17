@@ -1,4 +1,4 @@
-res://addons/ThreeSix/DialogImporterUI.tscn
+res://addons/ThreeSix/Dialog CSV Importer/DialogImporterUI.tscn
 res://Kit/Media/Themes/Dialog/dialog_box.tres
 res://Kit/Media/Themes/Dialog/dialog_choices.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_2_a.tres
@@ -6,48 +6,5 @@ res://Testing/Test Voiced Dialog/Conversations/Conversation_2_b.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_1_A.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_1_B.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_1.tres
-res://Kit/Dialog System/Data Types/Actor.gd
-res://Kit/UI/Scenes/game_ui.tscn
-res://Kit/Game.tscn
-res://Kit/Dialog System/Scenes/dialog_manager.tscn
-res://Kit/Audio Manager/audio_manager.tscn
-res://Kit/Audio Manager/audio_player.tscn
-res://addons/ThreeSix/dialog_display_entry.tscn
-res://Data/Dialog/Choices/Choice 1.tres
-res://Data/Dialog/Conversations/Convo 1.tres
-res://Data/Dialog/Conversations/Convo 2.tres
-res://Data/Dialog/Lines/line 1.tres
-res://Data/Dialog/Groups/Group 1.tres
-res://Data/Dialog/Actors/Amy.tres
-res://Data/Dialog/Actors/James.tres
-res://Data/Dialog/Actors/John.tres
-res://addons/ThreeSix/dialog_importer_ui.gd
-res://Data/Dialog/Lines/line 2.tres
-res://Data/Dialog/Lines/line 3.tres
-res://Data/Dialog/Groups/Group 2.tres
-res://Data/Dialog/Conversations/Convo 3.tres
-res://Data/Dialog/Lines/line 4.tres
-res://Data/Dialog/Conversations/Convo 4.tres
 res://Data/Dialog/Conversations/Convo 5.tres
-res://Data/Dialog/Choices/Convo 4.tres
-res://Data/Dialog/Lines/line 5.tres
-res://Data/Dialog/Lines/line 6.tres
-res://Data/Dialog/Lines/line 7.tres
-res://Data/Dialog/Lines/line 8.tres
-res://Data/Dialog/Lines/line 9.tres
-res://Data/Dialog/Lines/line 10.tres
-res://Data/Dialog/Lines/line 11.tres
-res://Data/Dialog/Lines/line 12.tres
-res://Data/Dialog/Lines/line 13.tres
-res://Data/Dialog/Lines/line 14.tres
-res://Data/Dialog/Lines/line 15.tres
-res://Data/Dialog/Lines/line 16.tres
-res://addons/ThreeSix/setup_data_for_entry.gd
-res://addons/ThreeSix/DialogCSVImporter.gd
-res://Data/Dialog/Choices/Choice 3.tres
-res://Data/Dialog/Choices/Choice 2.tres
-res://Data/Dialog/Choices/Convo 1.tres
 res://Data/Dialog/Groups/Group 3.tres
-res://Data/Dialog/Choices/Choice 4.tres
-res://addons/ThreeSix/dialogCSVDataContainer.gd
-res://Data/Dialog/Conversations/.tres

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogChoice" load_steps=2 format=3 uid="uid://bh1gs0gkd4dck"]
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=2 format=3 uid="uid://dxe7wyqbl7pe6"]
 
 [ext_resource type="Script" uid="uid://bwgpv5sq6im4j" path="res://Kit/Dialog System/Data Types/Dialog_Choice.gd" id="1_1wp3s"]
 
