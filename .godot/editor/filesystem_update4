@@ -49,3 +49,5 @@ res://Data/Dialog/Choices/Choice 2.tres
 res://Data/Dialog/Choices/Convo 1.tres
 res://Data/Dialog/Groups/Group 3.tres
 res://Data/Dialog/Choices/Choice 4.tres
+res://addons/ThreeSix/dialogCSVDataContainer.gd
+res://Data/Dialog/Conversations/.tres
