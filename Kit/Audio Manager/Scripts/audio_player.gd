@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
-class_name audio_player
+class_name AudioPlayer
 
-var test : audio_player
+var test : AudioPlayer
 func _on_finished() -> void:
-	AudioManager.stream_finished.emit(self)
-	AudioManager.push_p(self)
+	Audio_Manager.stream_finished.emit(self)
+	Audio_Manager.push_p(self)

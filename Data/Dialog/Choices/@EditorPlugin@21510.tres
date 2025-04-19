@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=5 format=3 uid="uid://drarii6rhniew"]
+
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_36ph5"]
+[ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="2_bo54a"]
+[ext_resource type="Script" uid="uid://bwgpv5sq6im4j" path="res://Kit/Dialog System/Data Types/Dialog_Choice.gd" id="3_76t7l"]
+
+[sub_resource type="Resource" id="Resource_36ph5"]
+script = ExtResource("2_bo54a")
+lines = Array[ExtResource("1_36ph5")]([])
+required_flags = Array[String]([])
+
+[resource]
+script = ExtResource("3_76t7l")
+choice_one_text = "First choice"
+choice_one_conversation = SubResource("Resource_36ph5")
+choice_one_flags = Array[String](["good_job", "did_it", "didnt_fail"])
+choice_two_text = "Second Choice"
+choice_two_flags = Array[String]([])
+ui_selected = 0

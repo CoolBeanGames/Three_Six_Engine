@@ -1,5 +1,5 @@
-extends dialog_line
-class_name voiced_dialog_line
+extends DialogLine
+class_name VoicedDialogLine
 
 @export_category("voice")
 @export var voiced_line : AudioStream

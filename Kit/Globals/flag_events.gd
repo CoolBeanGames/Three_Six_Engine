@@ -1,4 +1,4 @@
-class_name flag_events extends Node
+class_name FlagEvents extends Node
 
 enum watch_type {always,only_true,only_false,one_shot,only_true_one_shot,only_false_one_shot}
 @export var Watchers : Dictionary[String,Array] ##anything added to this will be called whenever a flag is changed

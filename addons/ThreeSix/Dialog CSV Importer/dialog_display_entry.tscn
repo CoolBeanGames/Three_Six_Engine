@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdy16jjr6cq11"]
+
+[ext_resource type="Script" uid="uid://d4ihkcm588aem" path="res://addons/ThreeSix/Dialog CSV Importer/setup_data_for_entry.gd" id="1_ojr5j"]
+
+[node name="DialogDisplayEntry" type="HBoxContainer"]
+script = ExtResource("1_ojr5j")
+
+[node name="Actor" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "[]"
+horizontal_alignment = 1
+
+[node name="Group" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "[]"
+horizontal_alignment = 1
+
+[node name="Conversation" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "[]"
+horizontal_alignment = 1
+
+[node name="Line Name" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "[]"
+horizontal_alignment = 1
+
+[node name="Line" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "[]"
+horizontal_alignment = 1
+
+[node name="is_voiced" type="CheckButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "voiced:"
+icon_alignment = 1
+
+[node name="already exists" type="CheckButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "exists:"
+icon_alignment = 1

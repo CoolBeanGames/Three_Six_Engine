@@ -1,15 +1,23 @@
-res://Kit/Dialog System/Scenes/dialog_manager.tscn
+res://Data/Dialog/Conversations/@EditorPlugin@21510.tres
+res://Data/Dialog/Choices/@EditorPlugin@21510.tres
+res://Kit/Game.tscn
 res://Kit/Media/Themes/Dialog/dialog_box.tres
 res://Kit/Media/Themes/Dialog/dialog_choices.tres
-res://Testing/Test Voiced Dialog/Choices/choice_2.tres
-res://Testing/Test Voiced Dialog/Conversations/Conversation_1_A.tres
-res://Testing/Test Voiced Dialog/Conversations/Conversation_1.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_2_a.tres
-res://Kit/UI/Scenes/game_ui.tscn
-res://Kit/Game.tscn
-res://Kit/Audio Manager/audio_manager.tscn
-res://Kit/Audio Manager/audio_player.tscn
-res://Kit/Dialog System/Scripts/State/dialog_play.gd
-res://Testing/Test Voiced Dialog/Conversations/Conversation_1_B.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_2_b.tres
-res://Testing/Test Voiced Dialog/Choices/choice_1.tres
+res://Testing/Test Voiced Dialog/Conversations/Conversation_1_A.tres
+res://Testing/Test Voiced Dialog/Conversations/Conversation_1_B.tres
+res://Testing/Test Voiced Dialog/Conversations/Conversation_1.tres
+res://Data/Dialog/Groups/Group 1.tres
+res://addons/ThreeSix/Dialog CSV Importer/DialogCSVImporter.gd
+res://Data/Dialog/Actors/John.tres
+res://Data/Dialog/Actors/James.tres
+res://Data/Dialog/Actors/Amy.tres
+res://Data/Dialog/Conversations/@EditorPlugin@22949.tres
+res://Data/Dialog/Groups/Group 2.tres
+res://Data/Dialog/Choices/@EditorPlugin@22949.tres
+res://Data/Dialog/Groups/Group 3.tres
+res://Data/Dialog/Conversations/@EditorPlugin@23166.tres
+res://Data/Dialog/Choices/@EditorPlugin@23166.tres
+res://Data/Dialog/Conversations/@EditorPlugin@23533.tres
+res://Data/Dialog/Choices/@EditorPlugin@23533.tres

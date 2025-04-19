@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Conversation" load_steps=3 format=3 uid="uid://gtaa4mmy5y06"]
+
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_a3qv5"]
+[ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="2_pisnq"]
+
+[resource]
+script = ExtResource("2_pisnq")
+lines = Array[ExtResource("1_a3qv5")]([])
+required_flags = Array[String]([])
