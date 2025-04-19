@@ -239,6 +239,7 @@ func sort_resources(elements : Array):
 			Actors.set(r.resource_name,r)
 		if r is DialogLine:
 			Lines.set(r.resource_name,r)
+			print("sort_resources: Added line to Lines dictionary: ", r.resource_name, " with value: ", r) # ADD THIS
 		if r is Conversation:
 			Convos.set(r.resource_name,r)
 		if r is ConversationGroup:
@@ -339,6 +340,8 @@ func parse_csv():
 			#create our actor data
 			data.actor_name = s[0] if s.size() > 0 else ""
 			data.actor_object = create_actor(data.actor_name)
+			print("parse_csv: data.actor_object after create_actor:", data.actor_object, " for actor: ", data.actor_name)
+
 ##-------------------------------------------------------------------------------------------------
 			#create our group data
 			data.group_name = s[1] if s.size() > 1 else ""
@@ -601,23 +604,21 @@ func get_choice(name : String) -> DialogChoice:
 		return create_choice(dat)
 
 func create_line(data : csvDataContainer) -> DialogLine:
+	print("create_line: data.actor_object at start:", data.actor_object, " for line: ", data.line_name)
 	var l : DialogLine
 	var is_new : bool = false
 	var is_changed : bool = false
-	
-	
-	if is_new:
-		new_entries += 1
-	if is_changed:
-		changed_entires += 1
+	print("create_line: Checking Lines.has for: ", data.line_name) # ADD THIS
 	
 	##go through and update the data if it needs changed
 	if data.actor_object != l.actor:
 		is_changed = true
 		l.actor = create_actor(data.actor_name)
+		print("create_line: l before actor assignment:", l) # ADD THIS
 	if data.line_text != l.line:
 		is_changed = true
 		l.line = data.line_text
+		print("create_line: l before line_text assignment:", l) # ADD THIS
 	if data.flags != l.flags:
 		is_changed = true
 		l.flags = data.flags
@@ -630,11 +631,18 @@ func create_line(data : csvDataContainer) -> DialogLine:
 		if l.use_choices:
 			l.choice = get_choice(data.choice_name)	
 	
+	
+	if is_new:
+		new_entries += 1
+	if is_changed:
+		changed_entires += 1
+	
 	add_line_to_convo(l,data.line_name,data.convo_name)
 	
 	if is_new or is_changed:
 		prep_resource_for_saving(data.line_name,"res://Data/Dialog/Lines/" + data.line_name + ".tres",l)
 	
+	print("create_line: l at end of function:", l) # ADD THIS
 	return l
 
 ##add this line to our conversation
