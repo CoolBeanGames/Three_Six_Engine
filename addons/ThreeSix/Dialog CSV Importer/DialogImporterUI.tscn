@@ -133,7 +133,7 @@ size_flags_horizontal = 4
 [node name="entries created" type="Label" parent="Main Container/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "entries created: 0"
+text = "Entries: 0"
 
 [node name="spacer" type="Label" parent="Main Container/HBoxContainer2"]
 layout_mode = 2
