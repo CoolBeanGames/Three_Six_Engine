@@ -8,3 +8,10 @@ res://Testing/Test Voiced Dialog/Conversations/Conversation_1_B.tres
 res://Testing/Test Voiced Dialog/Conversations/Conversation_1.tres
 res://Data/Dialog/Conversations/Convo 5.tres
 res://Data/Dialog/Groups/Group 3.tres
+res://addons/ThreeSix/Dialog CSV Importer/DialogCSVImporter.gd
+res://addons/ThreeSix/Dialog CSV Importer/csvUI.gd
+res://Data/Dialog/Conversations/Convo 1.tres
+res://Data/Dialog/Conversations/Convo 2.tres
+res://Data/Dialog/Conversations/Convo 4.tres
+res://Data/Dialog/Groups/Group 1.tres
+res://Data/Dialog/Choices/Choice 1.tres

@@ -25,16 +25,19 @@ func get_sheet_number() -> int:
 
 ##update bottom text
 func update_changed_entries(text : String):
-	$"Main Container/HBoxContainer2/changed entries".text = text
+	$"Main Container/HBoxContainer2/changed entries".text = "entries changed: " + text
 
 func update_new_entries(text : String):
-	$"Main Container/HBoxContainer2/new entries".text = text
+	$"Main Container/HBoxContainer2/new entries".text = "new entries: " + text
 
 func update_entries_created(text : String):
-	$"Main Container/HBoxContainer2/entries created".text = text
+	$"Main Container/HBoxContainer2/entries created".text ="entries: " + text
 
-func update_time_taken(text : String):
-	$"Main Container/HBoxContainer2/time taken".text = text
+func update_time_taken(text : float):
+	if text > 1000:
+		$"Main Container/HBoxContainer2/time taken".text ="time taken: " + str(text/1000) + " seconds"
+		return
+	$"Main Container/HBoxContainer2/time taken".text ="time taken: " + str(text/1000) + " MS"
 
 func update_csv_preview(text : String):
 	$"Main Container/ScrollContainer/VBoxContainer/csv_preview/Panel/RichTextLabel".text = text
