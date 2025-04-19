@@ -1,5 +1,5 @@
 extends Resource
-class_name conversation
+class_name Conversation
 
-@export var lines : Array[dialog_line]
+@export var lines : Array[DialogLine]
 @export var required_flags : Array[String]

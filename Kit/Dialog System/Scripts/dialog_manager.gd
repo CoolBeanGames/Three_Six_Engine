@@ -1,23 +1,25 @@
 extends Node
-class_name dialog_manager
+class_name DialogManager
 
-@export var current_state : dialog_state
-var current_conversation : conversation
-var current_line : dialog_line
-var current_choice : dialog_choice
-var ui_refs : dialog_refs
+@export var current_state : DialogState
+var current_conversation : Conversation
+var current_line : DialogLine
+var current_choice : DialogChoice
+var ui_refs : DialogRefs
 var dialog_index = 0
+@export var audio_pips : Array[AudioStream] = []
 @export_category("states")
-@export var idle_state : dialog_idle_state
-@export var setup_state : dialog_setup_state
-@export var load_state : dialog_load_line
-@export var play_state : dialog_play_state
-@export var wait_state : dialog_wait_state
-@export var test_convo : conversation
+@export var idle_state : DialogIdleState
+@export var setup_state : DialogSetupState
+@export var load_state : DialogLoadState
+@export var play_state : DialogPlayState
+@export var wait_state : DialogWaitState
+@export var test_convo : Conversation
+
 
 func _ready() -> void:
 	await get_tree().process_frame
-	ui_refs=dialog_refs.new()
+	ui_refs=DialogRefs.new()
 	_init_states()
 	
 	await get_tree().create_timer(1).timeout
@@ -36,8 +38,8 @@ func _init_states():
 func _process(delta: float) -> void:
 	#this is a temp function
 	if Input.is_action_just_released("action"):
-		print("action: " , current_state.name)
 		current_state.on_action()
+	current_state.tick()
 
 func disable_and_reset_ui(instant : bool = false):
 	ui_refs.dialog_text.text = ""
@@ -112,6 +114,11 @@ func disable_button(element : Button, text : String):
 	element.text = text
 	tween.tween_property(element,"self_modulate",Color(1,1,1,0),.25)
 
-func start_dialog_conversation(convo : conversation):
+func start_dialog_conversation(convo : Conversation):
 	current_conversation = convo
 	current_state.next_state(setup_state)
+
+func play_audio_pip():
+	if audio_pips.size() > 0:
+		var pip : AudioStream = audio_pips[randi_range(0,audio_pips.size()-1)]
+		Audio_Manager.Create(pip,true,AudioManager.audio_type.sfx,1,current_line.actor.pitch_offset)

@@ -1,5 +1,5 @@
-extends dialog_state
-class_name dialog_idle_state
+extends DialogState
+class_name DialogIdleState
 
 func enter_state():
 	manager.disable_and_reset_ui()

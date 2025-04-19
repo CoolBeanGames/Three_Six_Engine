@@ -1,0 +1,100 @@
+[gd_resource type="Resource" script_class="Conversation" load_steps=17 format=3 uid="uid://ccnffwpufmes"]
+
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_iedn3"]
+[ext_resource type="Resource" uid="uid://bixm1xvipdqtx" path="res://Testing/Test Voiced Dialog/Actors/Mark.tres" id="2_6jqe5"]
+[ext_resource type="Script" uid="uid://dwq2247ff5cdn" path="res://Kit/Dialog System/Data Types/Voiced Line.gd" id="3_543eq"]
+[ext_resource type="AudioStream" uid="uid://bb6cr3j4v0dut" path="res://Testing/Test Voiced Dialog/Vocals/Mark 20.mp3" id="4_6jqe5"]
+[ext_resource type="AudioStream" uid="uid://g68n18lcmpax" path="res://Testing/Test Voiced Dialog/Vocals/Mark 21.mp3" id="5_543eq"]
+[ext_resource type="AudioStream" uid="uid://ba4cuyb247lqb" path="res://Testing/Test Voiced Dialog/Vocals/Mark 5.mp3" id="5_ys0jm"]
+[ext_resource type="Resource" uid="uid://cb8htkd05tuja" path="res://Testing/Test Voiced Dialog/Actors/Alexandria.tres" id="6_swisn"]
+[ext_resource type="AudioStream" uid="uid://mwmaliknda4j" path="res://Testing/Test Voiced Dialog/Vocals/Alexandria 6.mp3" id="7_bdk7p"]
+[ext_resource type="Resource" uid="uid://cj2ic1c5k3jcg" path="res://Testing/Test Voiced Dialog/Choices/choice_2.tres" id="8_6u4sd"]
+[ext_resource type="AudioStream" uid="uid://dvwbjn5ofexwy" path="res://Testing/Test Voiced Dialog/Vocals/Mark 7.mp3" id="9_l5wl3"]
+[ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="10_r0yhl"]
+
+[sub_resource type="Resource" id="Resource_x41gl"]
+script = ExtResource("3_543eq")
+voiced_line = ExtResource("4_6jqe5")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_6jqe5")
+line = "Oh..."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_ys0jm"]
+script = ExtResource("3_543eq")
+voiced_line = ExtResource("5_543eq")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_6jqe5")
+line = "Oh, Im sorry to hear that..."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_w6rbn"]
+script = ExtResource("3_543eq")
+voiced_line = ExtResource("5_ys0jm")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_6jqe5")
+line = "It was designed to be flexible eneough to be used in virtually ANY game i make in the future."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_frabq"]
+script = ExtResource("3_543eq")
+voiced_line = ExtResource("7_bdk7p")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("6_swisn")
+line = "and game YOU make? Are you sure about that Mark?"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_bbvgl"]
+script = ExtResource("3_543eq")
+voiced_line = ExtResource("9_l5wl3")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_6jqe5")
+line = "HA! well i think the user knows what i mean, obviously im not making the game. You get it, Right?"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = true
+choice = ExtResource("8_6u4sd")
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[resource]
+script = ExtResource("10_r0yhl")
+lines = Array[ExtResource("1_iedn3")]([SubResource("Resource_x41gl"), SubResource("Resource_ys0jm"), SubResource("Resource_w6rbn"), SubResource("Resource_frabq"), SubResource("Resource_bbvgl")])
+required_flags = Array[String]([])
+metadata/_custom_type_script = "uid://dmudqty8g4hww"

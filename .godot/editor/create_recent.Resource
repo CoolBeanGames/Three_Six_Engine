@@ -1,2 +1,5 @@
+ConversationGroup
+Conversation
+DialogLine
 Actor
 Theme

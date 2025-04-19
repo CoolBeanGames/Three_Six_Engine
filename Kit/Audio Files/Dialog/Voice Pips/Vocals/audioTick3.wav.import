@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7a0pwemoas0h"
+path="res://.godot/imported/audioTick3.wav-209ef08c0fa682a2b5c2d251d36755ca.sample"
+
+[deps]
+
+source_file="res://Kit/Audio Files/Dialog/Voice Pips/Vocals/audioTick3.wav"
+dest_files=["res://.godot/imported/audioTick3.wav-209ef08c0fa682a2b5c2d251d36755ca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

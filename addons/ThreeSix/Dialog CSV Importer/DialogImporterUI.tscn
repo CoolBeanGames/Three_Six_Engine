@@ -1,0 +1,168 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmty12a2m1yhj"]
+
+[ext_resource type="Script" uid="uid://cdsn8kfiufeeg" path="res://addons/ThreeSix/Dialog CSV Importer/csvUI.gd" id="1_tboml"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaaim"]
+bg_color = Color(0.230662, 0.246002, 0.315452, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ieltr"]
+bg_color = Color(0.231373, 0.247059, 0.313726, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="DialogImporterUi" type="VBoxContainer"]
+anchors_preset = -1
+anchor_right = 0.332
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_right = 12.04
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_tboml")
+
+[node name="name" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "Dialog CSV Importer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Main Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Url Box" type="TextEdit" parent="Main Container"]
+layout_mode = 2
+placeholder_text = "google sheets url"
+scroll_fit_content_height = true
+
+[node name="sheet id box" type="TextEdit" parent="Main Container"]
+layout_mode = 2
+text = "Sheet1"
+placeholder_text = "sheet ID"
+scroll_fit_content_height = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="Main Container/HBoxContainer"]
+layout_mode = 2
+text = "load CSV"
+
+[node name="Button2" type="Button" parent="Main Container/HBoxContainer"]
+layout_mode = 2
+text = "parse CSV"
+
+[node name="Button3" type="Button" parent="Main Container/HBoxContainer"]
+layout_mode = 2
+text = "create Resources"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Main Container"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Container/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="csv_preview" type="VBoxContainer" parent="Main Container/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Main Container/ScrollContainer/VBoxContainer/csv_preview"]
+layout_mode = 2
+text = "csv preview"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="Main Container/ScrollContainer/VBoxContainer/csv_preview"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vaaim")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Container/ScrollContainer/VBoxContainer/csv_preview/Panel"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="field_preview" type="VBoxContainer" parent="Main Container/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main Container/ScrollContainer/VBoxContainer/field_preview"]
+layout_mode = 2
+text = "Data Preview"
+horizontal_alignment = 1
+
+[node name="content panel" type="Panel" parent="Main Container/ScrollContainer/VBoxContainer/field_preview"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ieltr")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Main Container/ScrollContainer/VBoxContainer/field_preview/content panel"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Container/ScrollContainer/VBoxContainer/field_preview/content panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Main Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="entries created" type="Label" parent="Main Container/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Entries: 0"
+
+[node name="spacer" type="Label" parent="Main Container/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "      "
+
+[node name="new entries" type="Label" parent="Main Container/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "new entries: 0"
+
+[node name="spacer2" type="Label" parent="Main Container/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "      "
+
+[node name="changed entries" type="Label" parent="Main Container/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "changed entries: 0"
+
+[node name="spacer3" type="Label" parent="Main Container/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "      "
+
+[node name="time taken" type="Label" parent="Main Container/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "time taken: 0"
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

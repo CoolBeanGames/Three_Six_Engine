@@ -17,9 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://Kit/Globals/manager.gd"
+Game_Manager="*res://Kit/Globals/manager.gd"
 Game_Data="*res://Kit/Globals/game_data.gd"
 Flag_Events="*res://Kit/Globals/flag_events.gd"
+Audio_Manager="*res://Kit/Globals/audio_manager.gd"
 
 [display]
 
@@ -27,6 +28,14 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor]
+
+movie_writer/movie_file="/storage/emulated/0/Documents/36_movie_dialog_b.avi"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ThreeSix/Dialog CSV Importer/plugin.cfg")
 
 [input]
 

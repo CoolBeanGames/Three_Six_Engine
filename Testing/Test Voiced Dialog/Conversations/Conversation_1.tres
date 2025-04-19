@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="Conversation" load_steps=13 format=3 uid="uid://dnqepkx2uisio"]
+
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="1_jvvf5"]
+[ext_resource type="Resource" uid="uid://bixm1xvipdqtx" path="res://Testing/Test Voiced Dialog/Actors/Mark.tres" id="2_2obd2"]
+[ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="2_mo7hi"]
+[ext_resource type="Script" uid="uid://dwq2247ff5cdn" path="res://Kit/Dialog System/Data Types/Voiced Line.gd" id="3_p2kdg"]
+[ext_resource type="AudioStream" uid="uid://fky6o8sn2jb2" path="res://Testing/Test Voiced Dialog/Vocals/Mark 1.mp3" id="4_yuxty"]
+[ext_resource type="AudioStream" uid="uid://c4ngtipesagge" path="res://Testing/Test Voiced Dialog/Vocals/Alexandria 2.mp3" id="5_iwofd"]
+[ext_resource type="Resource" uid="uid://cb8htkd05tuja" path="res://Testing/Test Voiced Dialog/Actors/Alexandria.tres" id="5_yuxty"]
+[ext_resource type="AudioStream" uid="uid://cbyhh7u5kxc8d" path="res://Testing/Test Voiced Dialog/Vocals/Mark 3.mp3" id="6_kxaj6"]
+[ext_resource type="Resource" uid="uid://cpabnkt5qe1br" path="res://Testing/Test Voiced Dialog/Choices/choice_1.tres" id="6_p2kdg"]
+
+[sub_resource type="Resource" id="Resource_dgkae"]
+script = ExtResource("3_p2kdg")
+voiced_line = ExtResource("4_yuxty")
+end_on_voice_end = true
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_2obd2")
+line = "Oh, Hey there. This is a sample dialog for my game kit! it's meant to showcase how dialog could sound in game, although... THESE voices in particular were generated with AI for ease of debugging."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_e7j85"]
+script = ExtResource("3_p2kdg")
+voiced_line = ExtResource("5_iwofd")
+end_on_voice_end = true
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("5_yuxty")
+line = "Thats Okay though, its not final gameplay so we are just testing out the voice support functionality..."
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = false
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[sub_resource type="Resource" id="Resource_jt0d4"]
+script = ExtResource("3_p2kdg")
+voiced_line = ExtResource("6_kxaj6")
+end_on_voice_end = false
+end_time_buffer = 1.0
+allow_skip = false
+actor = ExtResource("2_2obd2")
+line = "Yeah thats right, but we are just AI what does our end user think of it?"
+flags = Array[String]([])
+show_actor_portrait = false
+typewriter = true
+use_choices = true
+choice = ExtResource("6_p2kdg")
+auto_confirm = false
+confirm_on_typewriter_end = false
+metadata/_custom_type_script = "uid://dwq2247ff5cdn"
+
+[resource]
+script = ExtResource("2_mo7hi")
+lines = Array[ExtResource("1_jvvf5")]([SubResource("Resource_dgkae"), SubResource("Resource_e7j85"), SubResource("Resource_jt0d4")])
+required_flags = Array[String]([])
+metadata/_custom_type_script = "uid://dmudqty8g4hww"

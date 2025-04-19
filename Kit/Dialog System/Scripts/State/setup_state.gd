@@ -1,5 +1,5 @@
-extends dialog_state
-class_name dialog_setup_state
+extends DialogState
+class_name DialogSetupState
 
 func enter_state():
 	manager.dialog_index = -1

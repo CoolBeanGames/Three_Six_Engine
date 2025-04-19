@@ -1,13 +1,13 @@
 extends Node
-class_name dialog_state
+class_name DialogState
 
-var manager : dialog_manager
+var manager : DialogManager
 
-func initialize(man : dialog_manager) -> void:
+func initialize(man : DialogManager) -> void:
 	manager = man
 
 func enter_state():
-	#print("dialog entered state: ", name)
+	print("dialog entered state: ", name)
 	pass
 
 func exit_state():
@@ -19,7 +19,7 @@ func tick():
 func on_action():
 	pass
 
-func next_state(new_state : dialog_state):
+func next_state(new_state : DialogState):
 	manager.current_state = new_state
 	exit_state()
 	new_state.enter_state()

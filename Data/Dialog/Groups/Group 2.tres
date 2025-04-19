@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ConversationGroup" load_steps=5 format=3 uid="uid://47j38a4o6blu"]
+
+[ext_resource type="Script" uid="uid://dmudqty8g4hww" path="res://Kit/Dialog System/Data Types/Conversation.gd" id="1_3bul7"]
+[ext_resource type="Script" uid="uid://ca30d1alqu5bv" path="res://Kit/Dialog System/Data Types/Dialog Line.gd" id="2_a1scf"]
+[ext_resource type="Script" uid="uid://cmee8yawiwlle" path="res://Kit/Dialog System/Data Types/Conversation Group.gd" id="3_a2qed"]
+
+[sub_resource type="Resource" id="Resource_3bul7"]
+script = ExtResource("1_3bul7")
+lines = Array[ExtResource("2_a1scf")]([])
+required_flags = Array[String](["one", "two", "three"])
+
+[resource]
+script = ExtResource("3_a2qed")
+approved_priority_conversations = Array[ExtResource("1_3bul7")]([])
+priority_conversations = Array[ExtResource("1_3bul7")]([])
+basic_conversations = Array[ExtResource("1_3bul7")]([SubResource("Resource_3bul7")])

@@ -1,5 +1,5 @@
 extends Node
-class_name game_manager
+class_name GameManager
 
 var viewport_size : Vector2
 var game_resolution : Vector2

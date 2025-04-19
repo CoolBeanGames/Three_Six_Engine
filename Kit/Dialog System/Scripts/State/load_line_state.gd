@@ -1,5 +1,5 @@
-extends dialog_state
-class_name dialog_load_line
+extends DialogState
+class_name DialogLoadState
 
 func enter_state():
 	super.enter_state()

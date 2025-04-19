@@ -1,4 +1,4 @@
-class_name dialog_refs
+class_name DialogRefs
 
 var portrait_image : TextureRect
 var dialog_parent : Control
